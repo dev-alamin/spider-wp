@@ -8772,7 +8772,7 @@ document.addEventListener("alpine:init", () => {
       {
         title: "Planer ferdige på minutter",
         content: "SPIDER finner løsninger på minutter som ellers er ekstremt krevende å planlegge manuelt – og leverer kvalitet som er dokumentert i krevende internasjonale testcase.",
-        image: "/images/technology-section-main.png"
+        image: "./../../images/technology-section-main.png"
       },
       {
         title: "Verdensledende optimalisering",

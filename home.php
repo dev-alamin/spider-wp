@@ -22,143 +22,82 @@ get_header();
   <!-- Use glow effect for key benefits and technology section -->
   <div class="relative overflow-hidden">
     <div class="spider-benefit-technology-glow-right"></div>
+    
     <!-- Key Benefit section  -->
+     <?php if( spider_solutions_get_theme_option( 'home_enable_benefit_section', true ) ): ?>
     <div class="relative flex items-center justify-center container mx-auto px-12 mt-20">
-      <div class="absolute inset-0 flex items-center" aria-hidden="true">
-        <div class="w-full border-t border-gray-200/60"></div>
-      </div>
-      <div class="relative">
-        <span
-          class="bg-white px-4 py-1.5 rounded-md text-[11px] font-bold tracking-[0.2em] uppercase text-gray-400 border border-gray-100 shadow-sm">
-          Nøkkelfordeler
-        </span>
-      </div>
+
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-gray-200/60"></div>
+          </div>
+
+          <div class="relative">
+            <span class="ben-badge-ref bg-white px-4 py-1.5 rounded-md text-[11px] font-bold tracking-[0.2em] uppercase text-gray-400 border border-gray-100 shadow-sm">
+              <?php echo esc_html( spider_solutions_get_theme_option( 'benefits_badge', 'Nøkkelfordeler' ) ); ?>
+            </span>
+          </div>
     </div>
 
     <section class="relative container mx-auto px-4 md:px-12 py-20">
       <div class="key-benefit-blue-glow-left"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
-        <h2 class="reveal-type text-5xl font-serif leading-tight text-gray-900">
-          Planlegging som gir mer tid, bedre kvalitet og lavere belastning
+        <h2 class="benefits-title-ref reveal-type text-5xl font-serif leading-tight text-gray-900">
+          <?php echo esc_html( spider_solutions_get_theme_option( 'benefits_title', 'Planlegging som gir mer tid...' ) ); ?>
         </h2>
         <div class="reveal-text lg:pl-12 lg:border-l border-gray-200">
-          <p class="text-gray-500 leading-relaxed text-sm">
-            Hjemmetjenesten er kompleks: kompetansekrav, tidsvinduer, pauser, kontinuitet og store variasjoner gjennom
-            dagen. SPIDER automatiserer alt dette, og leverer planer som både pleiere, planleggere og pasienter merker
-            forskjellen på – allerede første uke.
+          <p class="benefits-desc-ref text-gray-500 leading-relaxed text-sm">
+            <?php echo esc_html( spider_solutions_get_theme_option( 'benefits_desc' ) ); ?>
           </p>
         </div>
       </div>
 
       <div class="reveal-grid grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <?php 
+        $benefits = spider_solutions_get_theme_option( 'home_key_benefits', [] );
 
-        <div
-          class="reveal-card lg:col-span-1 lg:row-span-2 bg-white rounded-[32px] p-4 md:p-8 shadow-2xl shadow-gray-200 border border-gray-50 flex flex-col h-full">
-          <div class="bg-[#EEF2FF] rounded-2xl h-80 w-full mb-8 relative overflow-hidden border border-blue-50">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/benefit-first-block.svg" alt="Map route" class="w-full h-full object-cover opacity-60" />
-            <div
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-2 rounded-lg shadow-md text-[10px] font-bold">
-              Pasient</div>
-          </div>
+        foreach ( $benefits as $index => $item ) : 
+            $is_first = ( $index === 0 ); ?>
+            <div class="reveal-card <?php echo $is_first ? 'lg:col-span-1 lg:row-span-2' : ''; ?> bg-white rounded-[32px] p-4 md:p-8 shadow-2xl shadow-gray-200 border border-gray-50 flex flex-col h-full">
+              
+              <?php if ( $is_first && ! empty( $item['image'] ) ) : ?>
+                <div class="bg-[#EEF2FF] rounded-2xl h-80 w-full mb-8 relative overflow-hidden border border-blue-50">
+                    <img src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( $item['title'] ); ?>" class="w-full h-full object-cover opacity-60" />
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-2 rounded-lg shadow-md text-[10px] font-bold">
+                        Pasient
+                    </div>
+                </div>
+              <?php endif; ?>
 
-          <div class="bg-[#F9F5F3] w-10 h-10 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-serif mb-4">Mindre kjøring, mer tid hos pasientene</h3>
-          <div class="w-12 h-[1px] bg-gray-200 mb-6"></div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-8">
-            SPIDER finner optimal rekkefølge på besøkene og reduserer unødvendig kjøring. Det gir mer tid til
-            pasientoppfølging og mindre stress i hverdagen.
-          </p>
-          <button
-            class="mt-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400 bg-[#F9F5F3] w-fit px-4 py-2 rounded-full hover:bg-gray-100 transition-colors">
-            <span class="bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] shadow-sm">›</span>
-            Les mer
-          </button>
-        </div>
+              <div class="bg-[#F9F5F3] w-10 h-10 rounded-xl flex items-center justify-center mb-6">
+                <?php echo spider_solutions_get_benefit_icon( $item['icon_type'] ); ?>
+              </div>
 
-        <div
-          class="reveal-card bg-white rounded-[32px] p-4 md:p-8 shadow-2xl shadow-gray-200 border border-gray-50 flex flex-col">
-          <div class="bg-[#F8F9FA] w-10 h-10 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
-              </path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif mb-4 leading-tight">Planlegging på minutter, ikke timer</h3>
-          <p class="text-xs text-gray-500 leading-relaxed mb-8">
-            SPIDER regner gjennom enorme kombinasjoner og leverer ferdige planer raskt, selv når dagen endrer seg.
-          </p>
-          <button
-            class="mt-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400 bg-[#F9F5F3] w-fit px-4 py-2 rounded-full">
-            <span class="bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] shadow-sm">›</span>
-            Les mer
-          </button>
-        </div>
+              <h3 class="text-2xl font-serif mb-4 leading-tight">
+                <?php echo esc_html( $item['title'] ); ?>
+              </h3>
 
-        <div
-          class="reveal-card bg-white rounded-[32px] p-4 md:p-8 shadow-2xl shadow-gray-200 border border-gray-50 flex flex-col">
-          <div class="bg-[#F9F5F3] w-10 h-10 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.382-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z">
-              </path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif mb-4 leading-tight">Bedre kontinuitet og kvalitet i tjenesten</h3>
-          <p class="text-xs text-gray-500 leading-relaxed mb-8">
-            SPIDER sikrer samme pleier når det er viktig, håndterer pauser riktig og gir bedre flyt i tjenesten.
-          </p>
-          <button
-            class="mt-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400 bg-[#F9F5F3] w-fit px-4 py-2 rounded-full">
-            <span class="bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] shadow-sm">›</span>
-            Les mer
-          </button>
-        </div>
+              <div class="w-24 h-[1px] bg-gray-200 mb-6"></div>
 
-        <div
-          class="reveal-card bg-white rounded-[32px] p-4 md:p-8 shadow-2xl shadow-gray-200 border border-gray-50 flex flex-col">
-          <div class="bg-[#F9F5F3] w-10 h-10 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-              </path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif mb-4 leading-tight">Riktig kompetanse på riktig oppdrag</h3>
-          <p class="text-xs text-gray-500 leading-relaxed mb-8">
-            Systemet matcher oppdrag mot kompetansekrav, tilgjengelighet og regler. Du får kvalitet og trygghet.
-          </p>
-          <button
-            class="mt-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400 bg-[#F9F5F3] w-fit px-4 py-2 rounded-full">
-            <span class="bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] shadow-sm">›</span>
-            Les mer
-          </button>
-        </div>
+              <p class="<?php echo $is_first ? 'text-sm' : 'text-xs'; ?> text-gray-500 leading-relaxed mb-8">
+                <?php echo esc_html( $item['desc'] ); ?>
+              </p>
 
-        <div
-          class="reveal-card bg-white rounded-[32px] p-4 md:p-8 shadow-2xl shadow-gray-200 border border-gray-50 flex flex-col">
-          <div
-            class="bg-[#F9F5F3] w-10 h-10 rounded-xl flex items-center justify-center mb-6 text-gray-400 text-xl font-bold italic">
-            ✱
-          </div>
-          <h3 class="text-xl font-serif mb-4 leading-tight">Dokumenterbar toppoptimalisering</h3>
-          <p class="text-xs text-gray-500 leading-relaxed mb-8">
-            SPIDER leverer dokumentert svært høy optimaliseringskvalitet også på komplekse planer.
-          </p>
-          <button
-            class="mt-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400 bg-gray-50 w-fit px-4 py-2 rounded-full">
-            <span class="bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] shadow-sm">›</span>
-            Les mer
-          </button>
-        </div>
-
+              <a href="<?php echo esc_url( $item['link_url'] ); ?>" 
+              class="mt-auto flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400 bg-[#F9F5F3] w-fit px-4 py-2 rounded-full hover:bg-gray-100 transition-colors">
+                
+                <span class="bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] shadow-sm">›</span>
+                
+                <?php 
+                // Fallback to 'Les mer' if the field is empty
+                echo esc_html( !empty($item['link_text']) ? $item['link_text'] : __('Les mer', 'spider') ); 
+                ?>
+            </a>
+            </div>
+        <?php endforeach; ?>
       </div>
     </section>
+    <?php endif; ?>
     <!-- Key Benefit section Ends  -->
 
 
@@ -235,6 +174,7 @@ get_header();
       </div>
     </section>
     <!-- Functionalities section Ends -->
+     
   </div>
   <!-- Use glow effect for key benefits and technology section ends  -->
 
