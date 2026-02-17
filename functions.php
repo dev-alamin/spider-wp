@@ -7,9 +7,15 @@
  * @package Spider_Solutions
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if ( ! defined( '  ' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
+}
+
+define( 'SPIDER_PREFIX', 'spider_solutions_' );
+
+function spider_solutions_get_theme_option( $name, $default = '' ) {
+	return get_theme_mod( SPIDER_PREFIX . $name, $default );
 }
 
 /**
@@ -276,4 +282,22 @@ class Spider_Mobile_Walker extends Walker_Nav_Menu {
 
     function start_lvl(&$output, $depth = 0, $args = null) {}
     function end_lvl(&$output, $depth = 0, $args = null) {}
+}
+
+if ( ! function_exists( 'spider_result_trend' ) ) {
+    function spider_result_trend( $trend = 'up' ) {
+
+        $map = [
+            'up' => [
+                'class' => 'is-positive',
+                'icon'  => '↑',
+            ],
+            'down' => [
+                'class' => 'is-negative',
+                'icon'  => '↓',
+            ],
+        ];
+
+        return $map[ $trend ] ?? $map['up'];
+    }
 }
