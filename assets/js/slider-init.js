@@ -1,41 +1,5 @@
 const sliderJs = () => {
-  const el = document.querySelector(".testimonial-swiper");
-  const { Navigation, Pagination } = window.SwiperModules;
-  new window.Swiper(el, {
-    modules: [Navigation, Pagination],
-    speed: 500
-  });
-  new window.Swiper(".testimonial-swiper", {
-    modules: [Navigation, Pagination],
-    slidesPerView: 1.1,
-    // Shows a piece of the next slide on mobile
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    // Recommended to keep "left edge" logic simple
-    // mousewheel: true,
-    freeMode: true,
-    navigation: {
-      nextEl: ".swiper-next-btn",
-      prevEl: ".swiper-prev-btn"
-    },
-    autoplay: {
-      delay: 3e3,
-      // 3 seconds
-      disableOnInteraction: false
-      // Continue after interaction
-    },
-    speed: 500,
-    breakpoints: {
-      768: {
-        slidesPerView: 2.2
-      },
-      1280: {
-        slidesPerView: 3
-        // Matches the 3-column Figma look
-      }
-    }
-  });
+
   new window.Swiper(".value-swiper", {
     modules: [Navigation, Pagination],
     slidesPerView: 1.2,

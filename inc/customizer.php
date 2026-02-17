@@ -42,6 +42,14 @@ require_once get_template_directory() . '/inc/customizer/home/benefit.php';
 
 require_once get_template_directory() . '/inc/customizer/home/functionality.php';
 
+require_once get_template_directory() . '/inc/customizer/home/technology-faq.php';
+
+require_once get_template_directory() . '/inc/customizer/home/testimonial.php';
+
+require_once get_template_directory() . '/inc/customizer/home/everyone-happy.php';
+
+require_once get_template_directory() . '/inc/customizer/home/cta.php';
+
 /**
  * ===================
  * 2. About Panel
