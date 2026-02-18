@@ -73,3 +73,20 @@ require_once get_template_directory() . '/inc/customizer/about/tech-integration.
 require_once get_template_directory() . '/inc/customizer/about/cta.php';
 
 
+/**
+ * ===================
+ * 2. Functionality Panel
+ * ==================
+ */
+
+Kirki::add_panel( 'spider_functionlities_panel', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Spider Functionality', 'spider-solutions' ),
+    'description' => esc_html__( 'Manage all functionality sections here.', 'spider-solutions' ),
+) );
+
+require_once get_template_directory() . '/inc/customizer/functionalities/hero.php';
+
+require_once get_template_directory() . '/inc/customizer/functionalities/benefits.php';
+
+require_once get_template_directory() . '/inc/customizer/functionalities/slider.php';

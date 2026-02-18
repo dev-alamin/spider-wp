@@ -18,7 +18,16 @@
 <body <?php body_class(); ?> x-data>
   <?php wp_body_open(); ?>
 
-  <div id="page" class="site page-wrapper" style="position: relative; overflow: hidden;">
+       
+
+  <div id="page" class="site page-wrapper" style="position: relative; overflow: hidden;"
+  <?php if( is_page_template( 'functionality.php' ) ): ?>
+      data-glows='[
+      { "color": "#88b9fa", "top": "40%", "left": "-50%", "width": "100vw" },
+      { "color": "#f7dc72", "top": "-10%", "right": "-20%", "height": "100vh" }
+  ]'
+  <?php endif; ?>
+  >
     <?php if(is_front_page()): ?>
     <div class="glow-blob yellow-glow"></div>
     <div class="glow-blob blue-glow"></div>
@@ -432,5 +441,3 @@
     <?php endif; ?>
 
   <?php endif; ?>
-
-  </div>

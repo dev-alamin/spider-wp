@@ -18,7 +18,7 @@
 get_header();
 ?>
 
-
+  </div>
 <!-- Use glow effect for key benefits and technology section -->
 <div class="relative overflow-hidden">
   <div class="spider-benefit-technology-glow-right"></div>

@@ -345,3 +345,148 @@ function spider_solutions_get_benefit_icon($icon_type)
 			return '<svg class="' . $class . '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>';
 	}
 }
+
+/**
+ * Register Custom Post Type: Benefits
+ */
+function spider_register_benefits_cpt() {
+    $labels = array(
+        'name'                  => _x( 'Benefits', 'Post Type General Name', 'spider' ),
+        'singular_name'         => _x( 'Benefit', 'Post Type Singular Name', 'spider' ),
+        'menu_name'             => __( 'Benefits', 'spider' ),
+        'name_admin_bar'        => __( 'Benefit', 'spider' ),
+        'archives'              => __( 'Benefit Archives', 'spider' ),
+        'attributes'            => __( 'Benefit Attributes', 'spider' ),
+        'parent_item_colon'     => __( 'Parent Benefit:', 'spider' ),
+        'all_items'             => __( 'All Benefits', 'spider' ),
+        'add_new_item'          => __( 'Add New Benefit', 'spider' ),
+        'add_new'               => __( 'Add New', 'spider' ),
+        'new_item'              => __( 'New Benefit', 'spider' ),
+        'edit_item'             => __( 'Edit Benefit', 'spider' ),
+        'update_item'           => __( 'Update Benefit', 'spider' ),
+        'view_item'             => __( 'View Benefit', 'spider' ),
+        'view_items'            => __( 'View Benefits', 'spider' ),
+        'search_items'          => __( 'Search Benefit', 'spider' ),
+        'not_found'             => __( 'Not found', 'spider' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'spider' ),
+        'featured_image'        => __( 'Featured Image', 'spider' ),
+        'set_featured_image'    => __( 'Set featured image', 'spider' ),
+        'remove_featured_image' => __( 'Remove featured image', 'spider' ),
+        'use_featured_image'    => __( 'Use as featured image', 'spider' ),
+        'insert_into_item'      => __( 'Insert into benefit', 'spider' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this benefit', 'spider' ),
+        'items_list'            => __( 'Benefits list', 'spider' ),
+        'items_list_navigation' => __( 'Benefits list navigation', 'spider' ),
+        'filter_items_list'     => __( 'Filter benefits list', 'spider' ),
+    );
+
+    $args = array(
+        'label'               => __( 'Benefit', 'spider' ),
+        'description'         => __( 'Key benefits for Spider Solutions', 'spider' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 20,
+        'menu_icon'           => 'dashicons-star-filled', // Star icon for benefits
+        'show_in_admin_bar'   => true,
+        'show_in_nav_menus'   => true,
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => true,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+        'show_in_rest'        => true, // Required for Gutenberg
+    );
+    register_post_type( 'spider_benefit', $args );
+}
+add_action( 'init', 'spider_register_benefits_cpt', 0 );
+
+/**
+ * Add Meta Box for Benefit Details
+ */
+function spider_add_benefit_meta_boxes() {
+    add_meta_box(
+        'spider_benefit_details',
+        __( 'Benefit Styling & List', 'spider' ),
+        'spider_benefit_meta_box_callback',
+        'spider_benefit', 
+        'normal', 
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'spider_add_benefit_meta_boxes' );
+
+/**
+ * Meta Box Callback HTML
+ */
+function spider_benefit_meta_box_callback( $post ) {
+    wp_nonce_field( 'spider_save_benefit_meta', 'spider_benefit_meta_nonce' );
+
+    // Retrieve values
+    $is_key = get_post_meta( $post->ID, '_is_key_benefit', true );
+    $selected_icon = get_post_meta( $post->ID, '_benefit_icon', true ) ?: 'location';
+    $bullets = get_post_meta( $post->ID, '_benefit_bullets', true );
+
+    $icons = [
+        'bolt'     => 'Bolt/Flash',
+        'star'     => 'Star',
+        'target'   => 'Target',
+        'chart'    => 'Chart',
+        'location' => 'Location (Default)'
+    ];
+    ?>
+
+    <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+        <label style="font-weight:bold;">
+            <input type="checkbox" name="is_key_benefit" value="yes" <?php checked( $is_key, 'yes' ); ?>>
+            <?php _e( 'Show "Nøkkelfordeler" Badge', 'spider' ); ?>
+        </label>
+    </div>
+
+    <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+        <p style="font-weight:bold; margin-bottom: 10px;"><?php _e( 'Choose Card Icon', 'spider' ); ?></p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <?php foreach ( $icons as $value => $label ) : ?>
+                <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                    <input type="radio" name="benefit_icon" value="<?php echo $value; ?>" <?php checked( $selected_icon, $value ); ?>>
+                    <?php echo $label; ?>
+                </label>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div>
+        <label for="benefit_bullets" style="display:block; font-weight:bold; margin-bottom: 5px;">
+            <?php _e( 'List Items (One per line)', 'spider' ); ?>
+        </label>
+        <textarea id="benefit_bullets" name="benefit_bullets" rows="5" class="widefat" placeholder="Færre pleierskift per pasient&#10;Bedre kontinuitet..."><?php echo esc_textarea( $bullets ); ?></textarea>
+    </div>
+    <?php
+}
+
+/**
+ * Save Meta Box Data
+ */
+function spider_save_benefit_meta_data( $post_id ) {
+    if ( ! isset( $_POST['spider_benefit_meta_nonce'] ) || ! wp_verify_nonce( $_POST['spider_benefit_meta_nonce'], 'spider_save_benefit_meta' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+
+    // Save Checkbox
+    update_post_meta( $post_id, '_is_key_benefit', ( isset( $_POST['is_key_benefit'] ) ? 'yes' : 'no' ) );
+    
+    // Save Icon
+    if ( isset( $_POST['benefit_icon'] ) ) {
+        update_post_meta( $post_id, '_benefit_icon', sanitize_text_field( $_POST['benefit_icon'] ) );
+    }
+
+    // Save Bullets
+    if ( isset( $_POST['benefit_bullets'] ) ) {
+        update_post_meta( $post_id, '_benefit_bullets', sanitize_textarea_field( $_POST['benefit_bullets'] ) );
+    }
+}
+add_action( 'save_post', 'spider_save_benefit_meta_data' );
