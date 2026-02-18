@@ -193,80 +193,80 @@ get_header(); ?>
     <!-- First Two section e.g hero and result -->
 
     <!-- Slider section  -->
-<?php 
-$slider_bg    = get_theme_mod( SPIDER_PREFIX . 'func_slider_bg', '#F1ECEA' );
-$slider_title = get_theme_mod( SPIDER_PREFIX . 'func_slider_title', 'Verdien merkes i hele tjenesten' );
-$slider_items = get_theme_mod( SPIDER_PREFIX . 'func_slider_items', [] );
-$autoplay_speed = get_theme_mod( SPIDER_PREFIX . 'func_slider_speed', 3000 );
-?>
+    <?php 
+    $slider_bg    = get_theme_mod( SPIDER_PREFIX . 'func_slider_bg', '#F1ECEA' );
+    $slider_title = get_theme_mod( SPIDER_PREFIX . 'func_slider_title', 'Verdien merkes i hele tjenesten' );
+    $slider_items = get_theme_mod( SPIDER_PREFIX . 'func_slider_items', [] );
+    $autoplay_speed = get_theme_mod( SPIDER_PREFIX . 'func_slider_speed', 3000 );
+    ?>
 
-<section class="py-24 overflow-hidden" style="background-color: <?php echo esc_attr($slider_bg); ?>;">
-    <div class="max-w-7xl mx-auto px-6 mb-12 flex items-end justify-between">
-        <h2 class="reveal-type font-light text-4xl md:text-5xl lg:text-6xl text-slate-800 font-serif leading-tight">
-            <?php echo wp_kses_post($slider_title); ?>
-        </h2>
+    <section class="py-24 overflow-hidden" style="background-color: <?php echo esc_attr($slider_bg); ?>;">
+        <div class="max-w-7xl mx-auto px-6 mb-12 flex items-end justify-between">
+            <h2 class="reveal-type font-light text-4xl md:text-5xl lg:text-6xl text-slate-800 font-serif leading-tight">
+                <?php echo wp_kses_post($slider_title); ?>
+            </h2>
 
-        <div class="flex gap-3 pb-2">
-            <button class="swiper-prev-custom w-[100px] h-14 bg-white rounded-full flex items-center justify-center hover:bg-gray-50 transition-all active:scale-95 shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button class="swiper-next-custom w-[100px] h-14 bg-white rounded-full flex items-center justify-center hover:bg-gray-50 transition-all active:scale-95 shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
+            <div class="flex gap-3 pb-2">
+                <button class="swiper-prev-custom w-[100px] h-14 bg-white rounded-full flex items-center justify-center hover:bg-gray-50 transition-all active:scale-95 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="swiper-next-custom w-[100px] h-14 bg-white rounded-full flex items-center justify-center hover:bg-gray-50 transition-all active:scale-95 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div class="swiper value-swiper !pl-6 lg:!pl-[calc((100vw-80rem)/2+1.5rem)]">
-        <div class="swiper-wrapper">
-            <?php foreach ( $slider_items as $item ) : ?>
-                <div class="swiper-slide !h-auto">
-                    <div class="bg-white rounded-[1.5rem] p-4 shadow-sm h-full flex flex-col group">
-                        <div class="rounded-[2rem] overflow-hidden mb-8">
-                            <img src="<?php echo esc_url($item['image']); ?>" 
-                                 alt="Care Value"
-                                 class="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105">
-                        </div>
-                        <div class="px-6 pb-8 text-center">
-                            <p class="text-slate-600 leading-relaxed text-sm">
-                                <?php echo esc_html($item['text']); ?>
-                            </p>
+        <div class="swiper value-swiper !pl-6 lg:!pl-[calc((100vw-80rem)/2+1.5rem)]">
+            <div class="swiper-wrapper">
+                <?php foreach ( $slider_items as $item ) : ?>
+                    <div class="swiper-slide !h-auto">
+                        <div class="bg-white rounded-[1.5rem] p-4 shadow-sm h-full flex flex-col group">
+                            <div class="rounded-[2rem] overflow-hidden mb-8">
+                                <img src="<?php echo esc_url($item['image']); ?>" 
+                                    alt="Care Value"
+                                    class="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105">
+                            </div>
+                            <div class="px-6 pb-8 text-center">
+                                <p class="text-slate-600 leading-relaxed text-sm">
+                                    <?php echo esc_html($item['text']); ?>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-    // You can pass the PHP value using wp_localize_script or read it from a data-attribute
-const sliderSpeed = <?php echo (int)$autoplay_speed; ?>;
-                document.addEventListener('DOMContentLoaded', () => {
-                new Swiper(".value-swiper", {
-                    slidesPerView: 1.2,
-                    spaceBetween: 24,
-                    loop: true,
-                    speed: 800, // Transition speed
-                    grabCursor: true,
-                    navigation: {
-                        nextEl: ".swiper-next-custom",
-                        prevEl: ".swiper-prev-custom"
-                    },
-                    autoplay: {
-                        delay: sliderSpeed,
-                        disableOnInteraction: false
-                    },
-                    breakpoints: {
-                        640: { slidesPerView: 2.2 },
-                        1024: { slidesPerView: 2.9 }
-                    }
-                });
+    <script>
+        // You can pass the PHP value using wp_localize_script or read it from a data-attribute
+        const sliderSpeed = <?php echo (int)$autoplay_speed; ?>;
+            document.addEventListener('DOMContentLoaded', () => {
+            new Swiper(".value-swiper", {
+                slidesPerView: 1.2,
+                spaceBetween: 24,
+                loop: true,
+                speed: 800, // Transition speed
+                grabCursor: true,
+                navigation: {
+                    nextEl: ".swiper-next-custom",
+                    prevEl: ".swiper-prev-custom"
+                },
+                autoplay: {
+                    delay: sliderSpeed,
+                    disableOnInteraction: false
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2.2 },
+                    1024: { slidesPerView: 2.9 }
+                }
             });
-</script>
+        });
+    </script>
     <!-- Slider section ends  -->
 
     <div class="page-wrapper" data-glows='[

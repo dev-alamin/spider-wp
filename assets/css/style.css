@@ -3980,3 +3980,205 @@ footer .flex-col a:hover {
 body, body p{
   font-family: "Onest", sans-serif;
 }
+
+/* 404 layout */
+.error-404 {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Title */
+.error-404 .page-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Description text */
+.error-404 .page-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Search form */
+.error-404 .search-form {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.error-404 .search-field {
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    min-width: 240px;
+    font-size: 0.95rem;
+}
+
+.error-404 .search-submit {
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.error-404 .search-submit:hover {
+    background: #000;
+}
+
+/* Widgets section */
+.error-404 .widget {
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.error-404 .widget h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.error-404 .widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.error-404 .widget li {
+    margin-bottom: 0.4rem;
+}
+
+.error-404 .widget a {
+    text-decoration: none;
+    color: #222;
+}
+
+.error-404 .widget a:hover {
+    text-decoration: underline;
+}
+
+/* Archive dropdown */
+.error-404 select {
+    padding: 0.55rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+}
+
+
+/* ===== Page Content Base ===== */
+.entry-content {
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #413934;
+}
+
+/* Headings */
+.entry-content h1,
+.entry-content h2,
+.entry-content h3 {
+    font-family: "Fraunces", serif;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1f1a17;
+}
+
+.entry-content h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.entry-content h2 {
+    font-size: 1.7rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: .5rem;
+}
+
+.entry-content h3 {
+    font-size: 1.25rem;
+    color: #3a312c;
+}
+
+/* Paragraph spacing */
+.entry-content p {
+    margin-bottom: 1.2rem;
+    color: #5a514c;
+}
+
+/* Lists */
+.entry-content ul,
+.entry-content ol {
+    margin: 1.2rem 0 1.6rem 1.4rem;
+}
+
+.entry-content li {
+    margin-bottom: .4rem;
+}
+
+/* Tables (important for cookies page) */
+.entry-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.6rem 0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.04);
+    background: white;
+}
+
+.entry-content thead {
+    background: #f7f4f2;
+    font-weight: 600;
+}
+
+.entry-content th,
+.entry-content td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #f0ecea;
+    font-size: 15px;
+}
+
+.entry-content tbody tr:hover {
+    background: #faf8f7;
+}
+
+/* Code tags inside tables */
+.entry-content code {
+    background: #f3f0ee;
+    padding: 3px 7px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Separators */
+.entry-content hr {
+    margin: 3rem 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* Quote block */
+.entry-content blockquote {
+    margin: 2rem 0;
+    padding: 1.4rem 1.6rem;
+    background: #faf7f5;
+    border-left: 4px solid #d8cfc8;
+    border-radius: 10px;
+    font-style: italic;
+    color: #4b433e;
+}
+
+.entry-header h1 {
+    font-size: 3rem;
+    padding: 1rem 0;
+}

@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <?php if ( function_exists( 'has_site_icon' ) && has_site_icon() ) : ?>
     <?php wp_site_icon(); ?>
@@ -27,6 +29,22 @@
       { "color": "#f7dc72", "top": "-10%", "right": "-20%", "height": "100vh" }
   ]'
   <?php endif; ?>
+
+  <?php if(is_page_template( 'contact.php' ) ): ?>
+data-glows='[
+    { "color": "#f7dc72", "top": "5%", "left": "-50%", "width": "100vw" },
+    { "color": "#88b9fa", "top": "30%", "right": "0", "height": "100vh" }
+]'
+  <?php endif; ?>
+
+    <?php if(is_page_template( 'benefit.php' ) ): ?>
+data-glows='[
+    { "color": "#f7dc72", "top": "5%", "left": "-50%", "width": "100vw" },
+    { "color": "#88b9fa", "top": "50%", "right": "-20%", "height": "100vh" }
+]''
+  <?php endif; ?>
+
+
   >
     <?php if(is_front_page()): ?>
     <div class="glow-blob yellow-glow"></div>
@@ -53,7 +71,7 @@
           ?>
         </div>
 
-        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="hidden lg:block px-8 py-4 rounded-full bg-white text-black text-sm shadow-sm hover:bg-spider-dark hover:text-black transition-all">
+        <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hidden lg:block px-8 py-4 rounded-full bg-white text-black text-sm shadow-sm hover:bg-spider-dark hover:text-black transition-all">
           Kontakt oss
         </a>
 

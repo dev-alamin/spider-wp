@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main container mx-auto py-12">
 
 		<section class="error-404 not-found">
 			<header class="page-header">
