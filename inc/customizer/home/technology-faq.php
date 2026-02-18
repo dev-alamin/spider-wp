@@ -41,7 +41,7 @@ Kirki::add_field( 'spider_config', [
     'default'  => 'Utforsk alle funksjoner',
 ] );
 
-// CTA Button Text
+// CTA Button Link
 Kirki::add_field( 'spider_config', [
     'type'     => 'link',
     'settings' => SPIDER_PREFIX . 'home_tf_cta_link',

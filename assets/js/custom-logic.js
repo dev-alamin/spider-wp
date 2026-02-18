@@ -8827,7 +8827,7 @@ document.addEventListener("alpine:init", () => {
 });
 Alpine.start();
 document.addEventListener("DOMContentLoaded", () => {
-  sliderJs();
+  
   const containers = document.querySelectorAll("[data-glows]");
   if (!containers) return;
   containers.forEach((container) => {

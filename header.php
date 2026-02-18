@@ -5,8 +5,12 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="profile" href="https://gmpg.org/xfn/11">
+  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-  <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png" />
+  <?php if ( function_exists( 'has_site_icon' ) && has_site_icon() ) : ?>
+    <?php wp_site_icon(); ?>
+  <?php endif; ?>
+
 
   <?php wp_head(); ?>
 </head>
@@ -15,11 +19,13 @@
   <?php wp_body_open(); ?>
 
   <div id="page" class="site page-wrapper" style="position: relative; overflow: hidden;">
+    <?php if(is_front_page()): ?>
     <div class="glow-blob yellow-glow"></div>
     <div class="glow-blob blue-glow"></div>
+    <?php endif; ?>
 
     <div class="<?php is_front_page() ? 'md:min-h-screen' : '' ?>">
-      <nav x-data="{ mobileMenuOpen: false }" class="container relative flex items-center justify-between px-6 md:px-12 py-6 mx-auto">
+      <nav x-data="{ mobileMenuOpen: false }" class="container relative flex items-center justify-between px-6 md:px-12 py-6 mx-auto z-50">
         <div class="flex items-center gap-2 z-50">
           <a href="<?php echo esc_url(home_url('/')); ?>">
             <img src="<?php echo get_template_directory_uri(); ?>/images/main-logo-dark.svg" alt="<?php bloginfo('name'); ?>" class="h-8" />
