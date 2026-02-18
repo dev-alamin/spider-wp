@@ -366,7 +366,7 @@ if (spider_solutions_get_theme_option('home_enable_testimonial_section', true) &
                         </svg>
                       <?php endfor; ?>
                     </div>
-                    <p class="text-[18px] md:text-[22px] font-serif italic text-gray-800 leading-[1.6] mb-8">
+                    <p class="text-[18px] md:text-[22px] font-serif italic text-gray-800 font-light leading-[1.6] mb-8">
                       "<?php echo esc_html($t['quote']); ?>"
                     </p>
                   </div>

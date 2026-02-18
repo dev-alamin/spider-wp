@@ -68,5 +68,8 @@ require_once get_template_directory() . '/inc/customizer/about/result.php';
 
 require_once get_template_directory() . '/inc/customizer/about/transformation.php';
 
+require_once get_template_directory() . '/inc/customizer/about/tech-integration.php';
+
+require_once get_template_directory() . '/inc/customizer/about/cta.php';
 
 

@@ -65,7 +65,7 @@
 @layer theme {
   :root, :host {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-serif: "Fraunces", serif;;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-100: oklch(93.6% .032 17.717);
     --color-red-500: oklch(63.7% .237 25.331);
@@ -126,7 +126,7 @@
     --text-sm--line-height: calc(1.25 / .875);
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
-    --text-lg: 1.125rem;
+    --text-lg: 1rem;
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
@@ -3443,7 +3443,7 @@ body {
 }
 
 .font-serif {
-  font-family: Libre Baskerville, serif;
+  font-family: "Fraunces", serif;;
 }
 
 .testimonial-swiper {
@@ -3975,4 +3975,8 @@ footer .flex-col a {
 
 footer .flex-col a:hover {
     color: #000;
+}
+
+body, body p{
+  font-family: "Onest", sans-serif;
 }

@@ -2,35 +2,54 @@
 if( ! defined( 'ABSPATH' ) ) exit;
 
 Kirki::add_section( 'spider_about_transformation', array(
-    'title' => esc_html__( 'Transformation Section', 'spider-solutions' ),
-    'panel' => 'spider_about_panel',
+    'title'       => esc_html__( 'Transformation', 'spider-solutions' ),
+    'panel'       => 'spider_about_panel',
+    'preview_src' => home_url( '/about/' ),
 ) );
 
-Kirki::add_field( 'spider_config', array(
+Kirki::add_field('spider_config', [
+    'type'     => 'toggle',
+    'settings' => SPIDER_PREFIX . 'about_enable_transf_section',
+    'label'    => esc_html__('Show/Hide Section', 'spider-solutions'),
+    'section'  => 'spider_about_transformation',
+    'default'  => true,
+]);
+
+// Headline
+Kirki::add_field( 'spider_config', [
+    'type'      => 'text',
+    'settings'  => SPIDER_PREFIX . 'about_transf_headline',
+    'label'     => esc_html__( 'Section Headline', 'spider' ),
+    'section'   => 'spider_about_transformation',
+    'default'   => 'Fra manuelt strev til reell kontroll',
+] );
+
+// "Before" List Repeater
+Kirki::add_field( 'spider_config', [
     'type'        => 'repeater',
-    'settings'    => 'transformation_infor',
-    'label'       => esc_html__( 'Benefit Cards', 'spider-solutions' ),
+    'settings'    => SPIDER_PREFIX . 'about_transf_before_list',
+    'label'       => esc_html__( 'Before SPIDER (Left Column)', 'spider' ),
     'section'     => 'spider_about_transformation',
-    'row_label'   => array( 'type' => 'field', 'field' => 'title' ),
-    'fields' => array(
-        'title' => array(
-            'type'  => 'text',
-            'label' => esc_html__( 'Card Title', 'spider-solutions' ),
-        ),
-        'desc' => array(
-            'type'  => 'textarea',
-            'label' => esc_html__( 'Description', 'spider-solutions' ),
-        ),
-        'icon_type' => array(
-            'type'    => 'select',
-            'label'   => esc_html__( 'Icon Style', 'spider-solutions' ),
-            'choices' => array(
-                'map'   => 'Map/Location',
-                'bolt'  => 'Energy/Minutes',
-                'star'  => 'Quality/Star',
-                'shield'=> 'Security/Shield',
-                'custom'=> 'Asterisk (*)',
-            ),
-        ),
-    ),
-) );
+    'fields' => [
+        'text' => [
+            'type'    => 'text',
+            'label'   => esc_html__( 'List Item', 'spider' ),
+            'default' => '',
+        ],
+    ],
+] );
+
+// "After" List Repeater
+Kirki::add_field( 'spider_config', [
+    'type'        => 'repeater',
+    'settings'    => SPIDER_PREFIX . 'about_transf_after_list',
+    'label'       => esc_html__( 'After SPIDER (Right Column)', 'spider' ),
+    'section'     => 'spider_about_transformation',
+    'fields' => [
+        'text' => [
+            'type'    => 'text',
+            'label'   => esc_html__( 'List Item', 'spider' ),
+            'default' => '',
+        ],
+    ],
+] );
