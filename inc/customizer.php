@@ -24,7 +24,7 @@ Kirki::add_config( 'spider_config', array(
 
 /**
  * ===================
- * 2. Main Panel
+ * 1. Main Panel
  * ==================
  */
 
@@ -75,7 +75,7 @@ require_once get_template_directory() . '/inc/customizer/about/cta.php';
 
 /**
  * ===================
- * 2. Functionality Panel
+ * 3. Functionality Panel
  * ==================
  */
 
@@ -90,3 +90,69 @@ require_once get_template_directory() . '/inc/customizer/functionalities/hero.ph
 require_once get_template_directory() . '/inc/customizer/functionalities/benefits.php';
 
 require_once get_template_directory() . '/inc/customizer/functionalities/slider.php';
+
+require_once get_template_directory() . '/inc/customizer/functionalities/comparison.php';
+
+require_once get_template_directory() . '/inc/customizer/functionalities/result.php';
+
+require_once get_template_directory() . '/inc/customizer/functionalities/cta.php';
+
+/**
+ * ===================
+ * 4. Benefit Panel
+ * ==================
+ */
+
+Kirki::add_panel( 'spider_benefit_panel', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Spider Benefit', 'spider-solutions' ),
+    'description' => esc_html__( 'Manage all Benefit sections here.', 'spider-solutions' ),
+) );
+
+require_once get_template_directory() . '/inc/customizer/benefit/hero.php';
+
+require_once get_template_directory() . '/inc/customizer/benefit/core-area.php';
+
+require_once get_template_directory() . '/inc/customizer/benefit/optimization.php';
+
+require_once get_template_directory() . '/inc/customizer/benefit/promo.php';
+
+require_once get_template_directory() . '/inc/customizer/benefit/integration.php';
+
+require_once get_template_directory() . '/inc/customizer/benefit/cta.php';
+
+/**
+ * ===================
+ * 4. Record Panel
+ * ==================
+ */
+
+Kirki::add_panel( 'spider_record_panel', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Spider Record', 'spider-solutions' ),
+    'description' => esc_html__( 'Manage all Record sections here.', 'spider-solutions' ),
+) );
+
+require_once get_template_directory() . '/inc/customizer/record/hero.php';
+
+require_once get_template_directory() . '/inc/customizer/record/benchmark.php';
+
+require_once get_template_directory() . '/inc/customizer/record/test.php';
+
+require_once get_template_directory() . '/inc/customizer/record/optimization.php';
+
+require_once get_template_directory() . '/inc/customizer/record/cta.php';
+
+/**
+ * ===================
+ * 5. Contact Panel
+ * ==================
+ */
+
+Kirki::add_panel( 'spider_contact_panel', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Spider Contact', 'spider-solutions' ),
+    'description' => esc_html__( 'Manage Contact Page.', 'spider-solutions' ),
+) );
+
+require_once get_template_directory() . '/inc/customizer/contact/contact.php';
