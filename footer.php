@@ -36,7 +36,7 @@
                                 <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.12.45 2.33.69 3.58.69a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.24 2.46.69 3.58a1 1 0 01-.27 1.11l-2.2 2.2z" />
                             </svg>
                         </div>
-                        <span class="text-md md:text-xl font-serif text-gray-900 tracking-tight">+47 41.21.44.57</span>
+                        <span class="text-md md:text-[18px] font-light font-serif text-gray-900 tracking-tight">+47 41.21.44.57</span>
                     </div>
 
                     <div class="p-3 md:p-4 rounded-[15px] border border-gray-300 flex items-center gap-6 transition-all hover:bg-white hover:shadow-xl hover:shadow-gray-200/40 group">
@@ -45,7 +45,7 @@
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                             </svg>
                         </div>
-                        <span class="text-md md:text-xl font-serif text-gray-900 tracking-tight">info@spidersolutions.no</span>
+                        <span class="text-md md:text-[18px] font-light font-serif text-gray-900 tracking-tight">info@spidersolutions.no</span>
                     </div>
 
                     <div class="p-3 md:p-4 rounded-[15px] border border-gray-300 flex items-center gap-6 transition-all hover:bg-white hover:shadow-xl hover:shadow-gray-200/40 group">
@@ -54,13 +54,13 @@
                                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
                             </svg>
                         </div>
-                        <span class="text-md md:text-xl font-serif text-gray-900 tracking-tight">Gaustadalléen 21, 0349 Oslo</span>
+                        <span class="text-md md:text-[18px] font-light font-serif text-gray-900 tracking-tight">Gaustadalléen 21, 0349 Oslo</span>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
-                <div></div>
+                <div class="hidden md:block"></div>
                 <ul class="flex flex-col gap-5 list-none">
                     <?php
                     wp_nav_menu(array(

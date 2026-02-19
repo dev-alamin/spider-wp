@@ -147,16 +147,16 @@ data-glows='[
 
       ?>
         <?php if ($show_hero_section): ?>
-          <header class="container mx-auto px-4 md:px-12 pt-4 md:pt-20 grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
+          <header class="container mx-auto pt-4 md:pt-20 grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
 
             <!-- Hero Left  -->
-            <div class="col-span-2">
+            <div class="lg:col-span-2">
 
               <span class="reveal-type italic text-gray-600 bg-white/50 px-4 py-1 rounded-sm border border-gray-100 text-sm mb-8 inline-block">
                 <?php echo esc_html($badge); ?>
               </span>
 
-              <h1 class="reveal-type text-4xl md:text-6xl font-serif leading-tight mb-8">
+              <h1 class="reveal-type text-4xl md:text-6xl font-light font-serif leading-tight mb-8">
                 <?php echo esc_html($title); ?>
               </h1>
 
@@ -189,8 +189,8 @@ data-glows='[
 
             <!-- Hero Right Starts  -->
             <?php if ($show_hero_right): ?>
-              <div class="reveal-grid relative w-full md:h-[750px] lg:ml-auto col-span-3">
-                <div class="reveal-card flex flex-col md:flex-row gap-4 justify-between">
+              <div class="reveal-grid relative w-full md:h-[750px] lg:ml-auto lg:col-span-3">
+                <div class="reveal-card flex flex-col md:flex-row gap-6 justify-between">
 
                   <div>
 
@@ -224,7 +224,7 @@ data-glows='[
 
                     <div class="relative">
                       <div
-                        class="bottom-4 md:w-[350px] bg-white rounded-2xl p-4 py-8 md:py-15.5 mt-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-50 z-30">
+                        class="bottom-4 lg:w-[350px] bg-white rounded-2xl p-4 py-8 md:py-15.5 mt-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-50 z-30 lg:mt-12">
                         <h3 class="hero-card2-title-ref font-serif text-[14px] text-center text-gray-900 mb-4">
                           <?php echo esc_html($card2_title); ?>
                         </h3>
@@ -236,18 +236,20 @@ data-glows='[
 
                         <div class="flex justify-center -space-x-4 mb-8">
                           <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
-                            src="https://i.pravatar.cc/150?u=a1" alt="">
+                            src="/wp-content/uploads/2026/02/0c23f9f1a65065e10c0abcc3b707937ae80b5f12.jpg" alt="">
                           <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
-                            src="https://i.pravatar.cc/150?u=a2" alt="">
+                            src="/wp-content/uploads/2026/02/9ddb52552f1000f1ff24d6e5998b4e75b807d87b.jpg" alt="">
                           <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
-                            src="https://i.pravatar.cc/150?u=a3" alt="">
+                            src="/wp-content/uploads/2026/02/fbdbd28a57ad4574dc8d3c66eec64917ab8b8848.jpg" alt="">
+                            <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
+                            src="/wp-content/uploads/2026/02/b0a78fdc3a6d8297b81c8e8b76e94feef1df21fe.jpg" alt="">
                           <div
                             class="w-14 h-14 rounded-full border-[6px] border-white bg-[#FFE587] flex items-center justify-center text-gray-900 text-sm font-bold shadow-sm">
                             +</div>
                         </div>
 
-                        <button
-                          class="w-full py-5 bg-[#F8F7F4] rounded-2xl text-[11px] font-bold text-gray-600 flex items-center justify-center gap-2 hover:bg-[#FFE587] hover:text-gray-900 transition-colors">
+                        <button style="border: 1px solid #EDE4E0;"
+                          class="w-full py-5 bg-[#F9F5F3] rounded-2xl text-[11px] font-bold text-gray-600 flex items-center justify-center gap-2 hover:bg-[#FFE587] hover:text-gray-900 transition-colors">
                           <span class="text-xl leading-none font-light">+</span> Legg til ny bruker
                         </button>
                       </div>
@@ -255,9 +257,9 @@ data-glows='[
 
 
                       <div
-                        class="hero-central-logo hidden md:flex w-[120px] h-[120px] absolute left-95 top-2 items-center justify-center z-40">
+                        class="hero-central-logo hidden lg:flex w-[120px] h-[120px] absolute left-95 top-2 items-center justify-center z-40">
                         <?php if ($center_logo && $show_center_logo) : ?>
-                          <img src="<?php echo esc_url($center_logo); ?>"
+                          <img style="max-width: 80px;" src="<?php echo esc_url($center_logo); ?>"
                             class="w-full h-full object-contain animate-spider-float"
                             alt="spider solution floating logo">
                         <?php endif; ?>
@@ -270,7 +272,7 @@ data-glows='[
 
                   <div class="reveal-card md:flex flex-col mt-2 md:mt-0">
                     <div
-                      class="md:w-[340px] md:max-h-[400px] bg-white rounded-2xl p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.06)] border border-gray-50 z-10 mb-6">
+                      class="md:w-[340px] md:max-h-[400px] bg-white rounded-2xl p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.06)] border border-gray-50 z-10 mb-6 lg:mb-12">
                       <div class="mb-6">
                         <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-1">UNIK</h3>
                         <h4 class="hero-card2-title-ref font-serif text-[14px] leading-tight text-gray-900">
@@ -288,7 +290,7 @@ data-glows='[
                         ?>
 
 
-                          <div class="bg-[#FDF9ED] <?php if ($i >= 2) echo 'ml-' . 8 * ($i - 1); ?> px-5 py-4 rounded-2xl flex items-center gap-2 border-[#FFE587]/30">
+                          <div style="background-color: #F9F5F3;border:1px solid #EDE4E0;" class="<?php if ($i >= 2) echo 'ml-' . 8 * ($i - 1); ?> px-5 py-4 rounded-2xl flex items-center gap-2">
                             <div class="bg-[#FFE587] rounded-full p-1 text-gray-900"><svg class="w-3 h-3" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
@@ -307,7 +309,7 @@ data-glows='[
                     </div>
 
                     <div
-                      class="md:w-[470px] relative bg-white rounded-2xl p-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-gray-50 z-20 overflow-hidden md:ml-[-130px]">
+                      class="md:w-[400px] lg:w-[470px] relative bg-white rounded-2xl p-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-gray-50 z-20 overflow-hidden lg:ml-[-130px]">
                       <div class="absolute -right-6 -top-6 opacity-[0.04] text-gray-900 pointer-events-none">
 
                         <!-- <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24">
@@ -324,7 +326,7 @@ data-glows='[
 
                       </div>
 
-                      <div class="bg-[#FFE587] w-14 h-14 rounded-2xl flex items-center justify-center mb-8">
+                      <div class="bg-[#FFE587] w-14 h-14 rounded-full flex items-center justify-center mb-8">
                         <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                             d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -334,7 +336,7 @@ data-glows='[
                         <?php echo esc_html($card4_title); ?>
                       </h3>
 
-                      <p class="hero-card4-desc-ref text-[13px] text-gray-500 leading-relaxed max-w-[250px]">
+                      <p class="hero-card4-desc-ref text-[13px] text-gray-500 leading-relaxed" style="padding-right: 2rem;">
                         <?php echo esc_html($card4_desc); ?>
                       </p>
 
@@ -371,7 +373,7 @@ data-glows='[
       <section class="container mx-auto px-6 py-24 text-center">
 
         <div class="space-y-2 mb-20">
-          <h2 class="text-3xl md:text-4xl font-serif text-[#1F2937] line-through">
+          <h2 class="text-3xl font-light md:text-4xl font-serif text-[#1F2937] line-through">
             <?php echo esc_html(spider_solutions_get_theme_option('home_res_heading_strike')); ?>
           </h2>
 

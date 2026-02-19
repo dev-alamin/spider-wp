@@ -25,7 +25,7 @@ get_header();
 
   <!-- Key Benefit section  -->
   <?php if (spider_solutions_get_theme_option('home_enable_benefit_section', true)): ?>
-    <div class="relative flex items-center justify-center container mx-auto px-12 mt-20">
+    <div class="relative flex items-center justify-center container mx-auto px-12 mt-12 md:mt-16">
 
       <div class="absolute inset-0 flex items-center" aria-hidden="true">
         <div class="w-full border-t border-gray-200/60"></div>
@@ -42,7 +42,7 @@ get_header();
       <div class="key-benefit-blue-glow-left"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
-        <h2 class="benefits-title-ref reveal-type text-5xl font-serif leading-tight text-gray-900">
+        <h2 class="benefits-title-ref reveal-type text-5xl font-light font-serif leading-tight text-gray-900">
           <?php echo esc_html(spider_solutions_get_theme_option('benefits_title', 'Planlegging som gir mer tid...')); ?>
         </h2>
         <div class="reveal-text lg:pl-12 lg:border-l border-gray-200">
@@ -103,7 +103,7 @@ get_header();
 
   <!-- Functionlities section  -->
   <?php if (spider_solutions_get_theme_option('home_enable_functionlity_section', true)): ?>
-    <div class="relative flex items-center justify-center container mx-auto px-4 mt-12 md:px-12 md:mt-32">
+    <div class="relative flex items-center justify-center container mx-auto px-4 mt-8 md:px-12 md:mt-24">
       <div class="absolute inset-0 flex items-center" aria-hidden="true">
         <div class="w-full border-t border-gray-200/60"></div>
       </div>
@@ -145,7 +145,7 @@ get_header();
         </span>
       </div>
 
-      <h2 class="func-headline-ref reveal-type text-3xl md:text-5xl font-serif text-gray-900 mb-8 md:mt-6">
+      <h2 class="func-headline-ref reveal-type font-light text-3xl md:text-5xl font-serif text-gray-900 mb-8 md:mt-6">
         <?php echo esc_html(spider_solutions_get_theme_option('func_headline', 'Funksjonalitet uten grenser')); ?>
       </h2>
 
@@ -244,7 +244,7 @@ get_header();
   <?php if (spider_solutions_get_theme_option('home_enable_technology_faq_section', true)) : ?>
 
     <section class="container mx-auto px-6 py-20 text-center">
-      <h2 class="tf-headline-ref reveal-type text-3xl md:text-5xl font-serif text-gray-900 mb-6">
+      <h2 class="tf-headline-ref reveal-type font-light text-3xl md:text-5xl font-serif text-gray-900 mb-6">
         <?php echo esc_html(spider_solutions_get_theme_option('home_tf_headline')); ?>
       </h2>
       <div class="reveal-text">
@@ -290,7 +290,7 @@ get_header();
               <div class="w-8 h-8 rounded-full flex items-center justify-center text-black font-bold group-hover:border-gray-400 bg-white p-4 text-xl transition-all">
                 +
               </div>
-              <h3 class="text-lg font-medium text-gray-800" x-text="item.title"></h3>
+              <h3 class="text-lg text-gray-800" x-text="item.title"></h3>
             </div>
 
             <div x-show="openIndex === index"
@@ -305,7 +305,7 @@ get_header();
                 </svg>
               </div>
 
-              <h3 class="text-xl font-medium mb-4 pr-12 text-gray-900" x-text="item.title"></h3>
+              <h3 class="text-xl mb-4 pr-12 text-gray-900" x-text="item.title"></h3>
               <p class="text-gray-600 text-sm leading-relaxed max-w-[85%]" x-text="item.content"></p>
 
               <div class="mt-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-400">
@@ -334,7 +334,7 @@ if (spider_solutions_get_theme_option('home_enable_testimonial_section', true) &
   <section class="py-24 overflow-hidden bg-[#F1ECEA]">
     <div class="container mx-auto px-12">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-        <h2 class="reveal-type text-3xl md:text-5xl font-serif leading-tight text-gray-900 max-w-xl">
+        <h2 class="reveal-type font-light text-3xl md:text-5xl font-serif leading-tight text-gray-900 max-w-xl">
           <?php echo esc_html(spider_solutions_get_theme_option('home_tf_headline')); ?>
         </h2>
 
@@ -426,7 +426,7 @@ if (spider_solutions_get_theme_option('home_enable_connection__section', true)) 
 ?>
   <section class="py-24 bg-[#FAF9F6] relative overflow-hidden">
     <div class="container mx-auto px-12 text-center mb-20">
-      <h2 class="reveal-type text-3xl md:text-6xl font-serif text-gray-900 mb-8">
+      <h2 class="reveal-type font-light text-3xl md:text-6xl font-serif text-gray-900 mb-8">
         <?php echo esc_html(spider_solutions_get_theme_option('home_connection_headline')); ?>
       </h2>
       <div class="reveal-text">
@@ -519,7 +519,7 @@ if (spider_solutions_get_theme_option('home_enable_cta__section', true)) :
         </span>
       </div>
 
-      <h2 class="cta-headline-ref reveal-type text-3xl md:text-6xl font-serif text-gray-900 leading-tight mb-8">
+      <h2 class="cta-headline-ref font-light reveal-type text-3xl md:text-6xl font-serif text-gray-900 leading-tight mb-8">
         <?php echo esc_html(spider_solutions_get_theme_option('home_cta_headline')); ?>
       </h2>
 
