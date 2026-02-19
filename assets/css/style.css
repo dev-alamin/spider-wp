@@ -4432,3 +4432,34 @@ body, body p{
 .fluentform_wrapper_1 .ff-el-group .ff-el-input--label label[aria-label="Checkbox Field"] {
     display: none !important;
 }
+
+.hero-central-logo {
+    left: 84%;
+    top: 10px;
+}
+
+@media (max-width:1535px) {
+  .hero-bento-fourth-card {
+    margin-left: 0;
+  }
+}
+
+@media (min-width:1535px) {
+  .hero-bento-bottom-block{
+    margin-top: 4rem;
+  }
+
+    .hero-bento-fourth-card {
+    margin-top: 20px;
+  }
+}
+
+.hero-bento-bottom-block{
+  padding: 57px 20px;
+}
+
+@media (min-width:992px) {
+  .hero-bento-bottom-block{
+  max-width: 360px;
+}
+}

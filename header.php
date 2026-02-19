@@ -224,7 +224,7 @@ data-glows='[
 
                     <div class="relative">
                       <div
-                        class="bottom-4 lg:w-[350px] bg-white rounded-2xl p-4 py-8 md:py-15.5 mt-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-50 z-30 lg:mt-12">
+                        class="hero-bento-bottom-block bottom-4 bg-white rounded-2xl p-4 py-8 md:py-15.5 mt-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-50 z-30 lg:mt-16">
                         <h3 class="hero-card2-title-ref font-serif text-[14px] text-center text-gray-900 mb-4">
                           <?php echo esc_html($card2_title); ?>
                         </h3>
@@ -309,7 +309,7 @@ data-glows='[
                     </div>
 
                     <div
-                      class="md:w-[400px] lg:w-[470px] relative bg-white rounded-2xl p-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-gray-50 z-20 overflow-hidden lg:ml-[-130px]">
+                      class="hero-bento-fourth-card md:w-[400px] lg:w-[470px] relative bg-white rounded-2xl p-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-gray-50 z-20 overflow-hidden lg:ml-[-130px]">
                       <div class="absolute -right-6 -top-6 opacity-[0.04] text-gray-900 pointer-events-none">
 
                         <!-- <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24">
