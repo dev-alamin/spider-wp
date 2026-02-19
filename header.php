@@ -71,9 +71,12 @@ data-glows='[
           ?>
         </div>
 
-        <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="hidden lg:block px-8 py-4 rounded-full bg-white text-black text-sm shadow-sm hover:bg-spider-dark hover:text-black transition-all">
+        <?php if ( get_theme_mod( SPIDER_PREFIX . 'header_enable_section', true ) ) : ?>
+        <a href="<?php echo esc_url(get_theme_mod(SPIDER_PREFIX . 'header_btn_link', '/kontakt' )); ?>" class="hidden lg:block px-8 py-4 rounded-full bg-white text-black text-sm shadow-sm hover:bg-spider-dark hover:text-black transition-all">
           Kontakt oss
         </a>
+        <?php endif; ?>
+
 
         <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden z-[110] p-2 text-[#413934] relative">
           <svg x-show="!mobileMenuOpen" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,11 +111,14 @@ data-glows='[
                 ));
                 ?>
 
-                <a href="<?php echo esc_url(home_url('/contact')); ?>"
-                  @click="mobileMenuOpen = false"
-                  class="mt-8 px-8 py-4 rounded-full bg-[#111] text-white text-center text-base hover:bg-black transition-colors shadow-lg">
-                  Kontakt oss
-                </a>
+              <?php if ( get_theme_mod( SPIDER_PREFIX . 'header_enable_section', true ) ) : ?>
+                  <a href="<?php echo esc_url(get_theme_mod(SPIDER_PREFIX . 'header_btn_link', '/kontakt' )); ?>"
+                    @click="mobileMenuOpen = false"
+                    class="mt-8 px-8 py-4 rounded-full bg-[#111] text-white text-center text-base hover:bg-black transition-colors shadow-lg">
+                    Kontakt oss
+                  </a>
+              <?php endif; ?>
+
               </div>
             </div>
           </div>

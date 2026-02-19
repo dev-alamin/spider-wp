@@ -24,6 +24,20 @@ Kirki::add_config( 'spider_config', array(
 
 /**
  * ===================
+ * 1. General Panel - Header/Footer 
+ * ==================
+ */
+
+Kirki::add_panel( 'spider_general_panel', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Spider General', 'spider-solutions' ),
+    'description' => esc_html__( 'Manage General Settings.', 'spider-solutions' ),
+) );
+
+require_once get_template_directory() . '/inc/customizer/general.php';
+
+/**
+ * ===================
  * 1. Main Panel
  * ==================
  */
