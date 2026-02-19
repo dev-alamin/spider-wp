@@ -4320,3 +4320,115 @@ body, body p{
     }
   }
 }
+
+/* Custom Fluent Form Design Overrides */
+.fluentform_wrapper_1 .ff-el-form-control {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important; /* Tailwind gray-200 */
+    border-radius: 0.75rem !important;    /* rounded-xl */
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    transition: all 0.2s ease-in-out !important;
+    box-shadow: none !important;
+}
+
+.fluentform_wrapper_1 .ff-el-form-control:focus {
+    border-color: #1a1a1a !important;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Label Styling */
+.fluentform_wrapper_1 .ff-el-input--label label {
+    font-weight: 500 !important;
+    color: #1a1a1a !important;
+    font-size: 0.875rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Asterisk color */
+.fluentform_wrapper_1 .asterisk-right label:after {
+    color: #fb923c !important; /* Tailwind orange-400 */
+}
+
+/* Submit Button - Matching your black rounded design */
+.fluentform_wrapper_1 .ff_submit_btn_wrapper button.ff-btn-submit {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    width: 100% !important;
+    padding: 1rem 2rem !important;
+    border-radius: 9999px !important; /* rounded-full */
+    font-weight: 600 !important;
+    font-size: 1.125rem !important;
+    transition: background 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    margin-top: 1rem !important;
+}
+
+.fluentform_wrapper_1 .ff_submit_btn_wrapper button.ff-btn-submit:hover {
+    background-color: #000000 !important;
+}
+
+/* Adjusting the grid for Navn and E-post */
+@media (min-width: 768px) {
+    .ff-field_container.ff-name-field-wrapper {
+        width: 50% !important;
+        float: left !important;
+        padding-right: 12px !important;
+    }
+    .fluentform_wrapper_1 .ff-el-group:has(#ff_1_email) {
+        width: 50% !important;
+        float: left !important;
+        padding-left: 12px !important;
+    }
+    /* Clearfix for the floating elements */
+    .fluentform_wrapper_1 fieldset:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/* 1. Fix Input & Textarea Borders and Radius */
+.fluentform_wrapper_1 .ff-el-form-control {
+    border: 1px solid #e5e7eb !important; /* Light gray border */
+    border-radius: 0.75rem !important;    /* 12px rounded corners */
+    background-color: #fff !important;
+    padding: 12px 16px !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+/* 2. Focus State (Subtle glow when clicking) */
+.fluentform_wrapper_1 .ff-el-form-control:focus {
+    border-color: #1a1a1a !important;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05) !important;
+    outline: none !important;
+}
+
+/* 3. Ensure Labels are spaced correctly */
+.fluentform_wrapper_1 .ff-el-input--label label {
+    font-weight: 500 !important;
+    margin-bottom: 6px !important;
+    display: inline-block !important;
+}
+
+/* 4. Fix Checkbox & Label Spacing */
+.fluentform_wrapper_1 .ff-el-form-check-label {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    color: #6b7280 !important; /* gray-500 */
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+}
+
+.fluentform_wrapper_1 .ff-el-form-check-input {
+    margin-top: 3px !important;
+    border-radius: 4px !important;
+}
+
+/* 5. Hide "Checkbox Field" legend if it appears */
+.fluentform_wrapper_1 .ff-el-group .ff-el-input--label label[aria-label="Checkbox Field"] {
+    display: none !important;
+}
