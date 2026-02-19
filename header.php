@@ -39,8 +39,8 @@ data-glows='[
 
     <?php if(is_page_template( 'benefit.php' ) ): ?>
 data-glows='[
-    { "color": "#f7dc72", "top": "5%", "left": "-50%", "width": "100vw" },
-    { "color": "#88b9fa", "top": "50%", "right": "-20%", "height": "100vh" }
+    { "color": "#f7dc72", "top": "10%", "left": "-50%", "width": "100vw" },
+    { "color": "#88b9fa", "top": "30%", "right": "-20%", "height": "100vh" }
 ]''
   <?php endif; ?>
 

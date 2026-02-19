@@ -15,17 +15,43 @@ Kirki::add_field( 'spider_config', [
 ] );
 
 Kirki::add_field( 'spider_config', [
-    'type'      => 'text',
-    'settings'  => SPIDER_PREFIX . 'promo_promo_badge',
-    'label'     => esc_html__( 'Section Badge Text', 'spider' ),
-    'section'   => 'spider_benefit_promo',
-    'default'   => 'Nøkkelfordeler',
-] );
-
-Kirki::add_field( 'spider_config', [
     'type'      => 'textarea',
     'settings'  => SPIDER_PREFIX . 'promo_promo_headline',
     'label'     => esc_html__( 'Section Headline', 'spider' ),
     'section'   => 'spider_benefit_promo',
-    'default'   => 'Planlegging som gir mer tid, bedre kvalitet og lavere belastning',
+    'default'   => 'Utviklet sammen med kommunene',
+] );
+
+Kirki::add_field( 'spider_config', [
+    'type'      => 'textarea',
+    'settings'  => SPIDER_PREFIX . 'promo_promo_desc',
+    'label'     => esc_html__( 'Description', 'spider' ),
+    'section'   => 'spider_benefit_promo',
+    'default'   => 'SPIDER er utviklet i tett samarbeid med hjemmetjenester over hele landet...',
+] );
+
+// Image Upload
+Kirki::add_field( 'spider_config', [
+    'type'        => 'image',
+    'settings'    => SPIDER_PREFIX . 'promo_promo_image',
+    'label'       => esc_html__( 'Side Image', 'spider' ),
+    'section'     => 'spider_benefit_promo',
+    'default'     => get_template_directory_uri() . '/images/functionalities-consult.png',
+] );
+
+// Button
+Kirki::add_field( 'spider_config', [
+    'type'      => 'text',
+    'settings'  => SPIDER_PREFIX . 'promo_promo_btn_text',
+    'label'     => esc_html__( 'Button Text', 'spider' ),
+    'section'   => 'spider_benefit_promo',
+    'default'   => 'Book gratis demo',
+] );
+
+Kirki::add_field( 'spider_config', [
+    'type'      => 'link',
+    'settings'  => SPIDER_PREFIX . 'promo_promo_btn_url',
+    'label'     => esc_html__( 'Button URL', 'spider' ),
+    'section'   => 'spider_benefit_promo',
+    'default'   => '#',
 ] );

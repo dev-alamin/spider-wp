@@ -2,7 +2,7 @@
 if( ! defined( 'ABSPATH' ) ) exit;
 
 Kirki::add_section( 'spider_benefit_core_area', array(
-    'title'       => esc_html__( 'Comparison Section', 'spider-solutions' ),
+    'title'       => esc_html__( 'Core Areas', 'spider-solutions' ),
     'panel'       => 'spider_benefit_panel',
 ) );
 
@@ -15,17 +15,41 @@ Kirki::add_field( 'spider_config', [
 ] );
 
 Kirki::add_field( 'spider_config', [
-    'type'      => 'text',
-    'settings'  => SPIDER_PREFIX . 'benefit_core_area_badge',
-    'label'     => esc_html__( 'Section Badge Text', 'spider' ),
-    'section'   => 'spider_benefit_core_area',
-    'default'   => 'Nøkkelfordeler',
-] );
-
-Kirki::add_field( 'spider_config', [
     'type'      => 'textarea',
     'settings'  => SPIDER_PREFIX . 'benefit_core_area_headline',
     'label'     => esc_html__( 'Section Headline', 'spider' ),
     'section'   => 'spider_benefit_core_area',
-    'default'   => 'Planlegging som gir mer tid, bedre kvalitet og lavere belastning',
+    'default'   => 'Fire kjerneområder som dekker hele hverdagen i hjemmetjenesten',
+] );
+
+// Repeater for Core Area Cards
+Kirki::add_field( 'spider_config', [
+    'type'        => 'repeater',
+    'label'       => esc_html__( 'Core Area Cards', 'spider' ),
+    'section'     => 'spider_benefit_core_area',
+    'settings'    => SPIDER_PREFIX . 'benefit_core_area_items',
+    'row_label'   => [ 'type'  => 'text', 'value' => esc_html__('Core Area', 'spider' ) ],
+    'fields' => [
+        'title' => [
+            'type'    => 'text',
+            'label'   => esc_html__( 'Area Title', 'spider' ),
+            'default' => '',
+        ],
+        'description' => [
+            'type'    => 'textarea',
+            'label'   => esc_html__( 'Description', 'spider' ),
+            'default' => '',
+        ],
+        'icon' => [
+            'type'        => 'select',
+            'label'       => esc_html__( 'Icon Type', 'spider' ),
+            'default'     => 'plan',
+            'choices'     => [
+                'plan'    => esc_html__( 'Planning (User/Plus)', 'spider' ),
+                'quality' => esc_html__( 'Quality (Shield/Star)', 'spider' ),
+                'rules'   => esc_html__( 'Rules (Document/Clock)', 'spider' ),
+                'flex'    => esc_html__( 'Flexibility (Refresh/Sync)', 'spider' ),
+            ],
+        ],
+    ]
 ] );
