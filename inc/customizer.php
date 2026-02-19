@@ -133,10 +133,6 @@ Kirki::add_panel( 'spider_record_panel', array(
 
 require_once get_template_directory() . '/inc/customizer/record/hero.php';
 
-require_once get_template_directory() . '/inc/customizer/record/benchmark.php';
-
-require_once get_template_directory() . '/inc/customizer/record/test.php';
-
 require_once get_template_directory() . '/inc/customizer/record/optimization.php';
 
 require_once get_template_directory() . '/inc/customizer/record/cta.php';
