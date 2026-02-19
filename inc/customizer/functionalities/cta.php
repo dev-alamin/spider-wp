@@ -15,17 +15,33 @@ Kirki::add_field( 'spider_config', [
 ] );
 
 Kirki::add_field( 'spider_config', [
-    'type'      => 'text',
-    'settings'  => SPIDER_PREFIX . 'funcitonality_cta_badge',
-    'label'     => esc_html__( 'Section Badge Text', 'spider' ),
-    'section'   => 'spider_funcitonality_cta',
-    'default'   => 'Nøkkelfordeler',
-] );
-
-Kirki::add_field( 'spider_config', [
     'type'      => 'textarea',
     'settings'  => SPIDER_PREFIX . 'funcitonality_cta_headline',
     'label'     => esc_html__( 'Section Headline', 'spider' ),
     'section'   => 'spider_funcitonality_cta',
-    'default'   => 'Planlegging som gir mer tid, bedre kvalitet og lavere belastning',
+    'default'   => 'Hver kommune er forskjellig',
+] );
+
+Kirki::add_field( 'spider_config', [
+    'type'      => 'textarea',
+    'settings'  => SPIDER_PREFIX . 'funcitonality_cta_desc',
+    'label'     => esc_html__( 'Section Description', 'spider' ),
+    'section'   => 'spider_funcitonality_cta',
+    'default'   => 'SPIDER tilpasses lokale regler, arbeidsflyt og prioriteringer – og leverer verdi der det betyr mest.',
+] );
+
+Kirki::add_field( 'spider_config', [
+    'type'      => 'text',
+    'settings'  => SPIDER_PREFIX . 'funcitonality_cta_btn_text',
+    'label'     => esc_html__( 'Button Text', 'spider' ),
+    'section'   => 'spider_funcitonality_cta',
+    'default'   => 'Book gratis demo',
+] );
+
+Kirki::add_field( 'spider_config', [
+    'type'      => 'link',
+    'settings'  => SPIDER_PREFIX . 'funcitonality_cta_btn_url',
+    'label'     => esc_html__( 'Button URL', 'spider' ),
+    'section'   => 'spider_funcitonality_cta',
+    'default'   => '#',
 ] );

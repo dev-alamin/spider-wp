@@ -87,8 +87,6 @@ Kirki::add_panel( 'spider_functionlities_panel', array(
 
 require_once get_template_directory() . '/inc/customizer/functionalities/hero.php';
 
-require_once get_template_directory() . '/inc/customizer/functionalities/benefits.php';
-
 require_once get_template_directory() . '/inc/customizer/functionalities/slider.php';
 
 require_once get_template_directory() . '/inc/customizer/functionalities/comparison.php';

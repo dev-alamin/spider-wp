@@ -274,243 +274,198 @@ get_header(); ?>
         { "color": "#f7dc72", "top": "5%", "right": "-20%", "height": "100vh" }
     ]'>
         <!-- Comparison section  -->
+        <?php 
+        $show_section = get_theme_mod(SPIDER_PREFIX . 'funcitonality_enable_comparison', true);
+        $headline     = get_theme_mod(SPIDER_PREFIX . 'funcitonality_comparison_headline', 'Fra manuell kamp til operativ kontroll');
+        $rows         = get_theme_mod(SPIDER_PREFIX . 'comparison_rows', []);
+
+        if ( $show_section && !empty($rows) ) : 
+        ?>
         <section class="py-32 px-6 overflow-hidden">
-            <div class=" max-w-5xl mx-auto">
+            <div class="max-w-5xl mx-auto">
 
                 <h2 class="reveal-type font-light text-4xl md:text-5xl text-slate-800 font-serif text-center mb-24">
-                    Fra manuell kamp til operativ kontroll
+                    <?php echo esc_html($headline); ?>
                 </h2>
 
                 <div class="overflow-x-auto pb-12 -mx-6 px-6 hide-scrollbar md:overflow-visible">
-                    <div
-                        class="reveal-grid grid grid-cols-[1.5fr_1fr_1fr] md:grid-cols-[1.2fr_1fr_1fr] md:gap-x-8 relative min-w-[700px] md:min-w-full">
+                    <div class="reveal-grid grid grid-cols-[1.5fr_1fr_1fr] md:grid-cols-[1.2fr_1fr_1fr] md:gap-x-8 relative min-w-[700px] md:min-w-full">
 
                         <div class="reveal-card flex flex-col">
                             <div class="h-16"></div>
-                            <div
-                                class="h-20 flex items-center border-b border-slate-200 text-slate-700 font-medium text-sm">
-                                Planer genereres automatisk</div>
-                            <div
-                                class="h-20 flex items-center border-b border-slate-200 text-slate-700 font-medium text-sm">
-                                Planene oppdateres og reoptimaliseres</div>
-                            <div
-                                class="h-20 flex items-center border-b border-slate-200 text-slate-700 font-medium text-sm">
-                                Optimalisering på tvers av alle hensyn</div>
-                            <div
-                                class="h-20 flex items-center border-b border-slate-200 text-slate-700 font-medium text-sm">
-                                Kvalitet og presisjon i ferdige planer</div>
-                            <div
-                                class="h-20 flex items-center border-b border-slate-200 text-slate-700 font-medium text-sm">
-                                Fleksibilitet ved endringer i løpet av dagen</div>
-                            <div class="h-20 flex items-center text-slate-700 font-medium text-sm">Kontinuitet og
-                                kompetanse
-                                håndteres</div>
+                            <?php foreach ( $rows as $index => $row ) : 
+                                $border_class = ($index === count($rows) - 1) ? '' : 'border-b border-slate-200';
+                            ?>
+                                <div class="h-20 flex items-center <?php echo $border_class; ?> text-slate-700 font-medium text-sm">
+                                    <?php echo esc_html($row['feature_title']); ?>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
 
                         <div class="reveal-card bg-[#f2f0ec] rounded-[1.5rem] flex flex-col relative">
                             <div class="h-16 flex items-center justify-center">
-                                <span
-                                    class="bg-[#e2e0db] text-slate-500 px-4 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Før
-                                    SPIDER</span>
+                                <span class="bg-[#e2e0db] text-slate-500 px-4 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Før SPIDER</span>
                             </div>
-                            <div
-                                class="h-20 flex items-center justify-center border-b border-slate-300/30 text-slate-400">
-                                <div
-                                    class="w-7 h-7 rounded-full border border-slate-300 flex items-center justify-center font-bold">
-                                    ✕</div>
-                            </div>
-                            <div
-                                class="h-20 flex items-center justify-center border-b border-slate-300/30 text-slate-400">
-                                <div
-                                    class="w-7 h-7 rounded-full border border-slate-300 flex items-center justify-center font-bold">
-                                    ✕</div>
-                            </div>
-                            <div
-                                class="h-20 flex items-center justify-center border-b border-slate-300/30 text-slate-400">
-                                <div
-                                    class="w-7 h-7 rounded-full border border-slate-300 flex items-center justify-center font-bold">
-                                    ✕</div>
-                            </div>
-                            <div
-                                class="h-20 flex items-center justify-center border-b border-slate-300/30 px-4 text-center text-[11px] italic text-slate-400">
-                                Avhenger av manuell erfaring og tid</div>
-                            <div
-                                class="h-20 flex items-center justify-center border-b border-slate-300/30 text-slate-400">
-                                <div
-                                    class="w-7 h-7 rounded-full border border-slate-300 flex items-center justify-center font-bold">
-                                    ✕</div>
-                            </div>
-                            <div class="h-20 flex items-center justify-center text-slate-400">
-                                <div
-                                    class="w-7 h-7 rounded-full border border-slate-300 flex items-center justify-center font-bold">
-                                    ✕</div>
-                            </div>
+                            <?php foreach ( $rows as $index => $row ) : 
+                                $border_class = ($index === count($rows) - 1) ? '' : 'border-b border-slate-300/30';
+                                $val = strtolower($row['before_status']);
+                            ?>
+                                <div class="h-20 flex items-center justify-center <?php echo $border_class; ?> text-slate-400">
+                                    <?php if ($val === 'no') : ?>
+                                        <div class="w-7 h-7 rounded-full border border-slate-300 flex items-center justify-center font-bold">✕</div>
+                                    <?php elseif ($val === 'yes') : ?>
+                                        <div class="w-7 h-7 rounded-full bg-slate-300 flex items-center justify-center text-white">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    <?php else : ?>
+                                        <span class="px-4 text-center text-[11px] italic leading-tight"><?php echo esc_html($row['before_status']); ?></span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
 
-                        <div
-                            class="reveal-card bg-white rounded-[1.5rem] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08)] flex flex-col relative z-10 border border-slate-100">
+                        <div class="reveal-card bg-white rounded-[1.5rem] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08)] flex flex-col relative z-10 border border-slate-100">
                             <div class="h-16 flex items-center justify-center">
-                                <span
-                                    class="bg-[#fcebb6] text-slate-800 px-4 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Etter
-                                    SPIDER</span>
+                                <span class="bg-[#fcebb6] text-slate-800 px-4 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Etter SPIDER</span>
                             </div>
-                            <div class="h-20 flex items-center justify-center border-b border-slate-100">
-                                <div
-                                    class="w-7 h-7 rounded-full bg-[#fcebb6] flex items-center justify-center text-slate-800">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                            <?php foreach ( $rows as $index => $row ) : 
+                                $border_class = ($index === count($rows) - 1) ? '' : 'border-b border-slate-100';
+                                $val = strtolower($row['after_status']);
+                            ?>
+                                <div class="h-20 flex items-center justify-center <?php echo $border_class; ?>">
+                                    <?php if ($val === 'yes') : ?>
+                                        <div class="w-7 h-7 rounded-full bg-[#fcebb6] flex items-center justify-center text-slate-800">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    <?php elseif ($val === 'no') : ?>
+                                        <div class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-300 font-bold">✕</div>
+                                    <?php else : ?>
+                                        <span class="px-6 text-center text-[11px] font-medium text-slate-700 leading-tight"><?php echo esc_html($row['after_status']); ?></span>
+                                    <?php endif; ?>
                                 </div>
-                            </div>
-                            <div
-                                class="h-20 flex items-center justify-center border-b border-slate-100 text-slate-800 font-medium text-sm">
-                                Kontinuerlig</div>
-                            <div class="h-20 flex items-center justify-center border-b border-slate-100">
-                                <div
-                                    class="w-7 h-7 rounded-full bg-[#fcebb6] flex items-center justify-center text-slate-800">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div
-                                class="h-20 flex items-center justify-center border-b border-slate-100 px-6 text-center text-[11px] font-medium text-slate-700 leading-tight">
-                                Dokumentert toppoptimal kvalitet – hver dag</div>
-                            <div class="h-20 flex items-center justify-center border-b border-slate-100">
-                                <div
-                                    class="w-7 h-7 rounded-full bg-[#fcebb6] flex items-center justify-center text-slate-800">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="h-20 flex items-center justify-center">
-                                <div
-                                    class="w-7 h-7 rounded-full bg-[#fcebb6] flex items-center justify-center text-slate-800">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
 
                     </div>
                 </div>
-
             </div>
         </section>
+        <?php endif; ?>
         <!-- Comparison section ends  -->
 
         <!-- Seperator, Border  -->
-        <div class="relative flex items-center justify-center container mx-auto">
-            <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                <div class="w-full border-t border-gray-200/60"></div>
+            <div class="relative flex items-center justify-center container mx-auto">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                    <div class="w-full border-t border-gray-200/60"></div>
+                </div>
             </div>
-        </div>
         <!-- Seperator Border ends  -->
 
         <!-- Result section  -->
+        <?php 
+        $show_benefits = get_theme_mod(SPIDER_PREFIX . 'funcitonality_enable_benefits', true);
+        $badge         = get_theme_mod(SPIDER_PREFIX . 'funcitonality_benefits_badge', 'Teknologi som forsterker mennesket.');
+        $headline      = get_theme_mod(SPIDER_PREFIX . 'funcitonality_benefits_headline', 'Verdien av SPIDER ligger i samspillet...');
+        $desc          = get_theme_mod(SPIDER_PREFIX . 'funcitonality_benefits_desc', '');
+        $cards         = get_theme_mod(SPIDER_PREFIX . 'benefit_cards', []);
+
+        if ( $show_benefits ) : 
+        ?>
         <section class="min-h-screen p-8 md:p-20 font-sans text-slate-900">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
                 <div class="space-y-8">
-                    <hh2
-                        class="reveal-type text-4xl md:text-5xl font-light lg:text-6xl font-light leading-tight tracking-tight text-balance">
-                        Verdien av SPIDER ligger i samspillet mellom teknologi og mennesker.
-                    </hh2>
+                    <h2 class="reveal-type text-4xl md:text-5xl font-light lg:text-6xl leading-tight tracking-tight text-balance">
+                        <?php echo esc_html($headline); ?>
+                    </h2>
 
                     <div class="reveal-text space-y-6 max-w-lg">
-                        <p class="text-lg font-medium text-slate-700">
-                            Teknologi som forsterker mennesket.
-                        </p>
-                        <p class="text-slate-600 leading-relaxed">
-                            Ved å kombinere avansert optimalisering med forståelse for hverdagen i hjemmetjenesten,
-                            skaper SPIDER resultater som merkes i hele organisasjonen – fra administrasjon til det
-                            enkelte
-                            hjemmebesøk.
-                        </p>
+                        <?php if($badge): ?>
+                            <p class="text-lg font-medium text-slate-700">
+                                <?php echo esc_html($badge); ?>
+                            </p>
+                        <?php endif; ?>
+                        
+                        <?php if($desc): ?>
+                            <p class="text-slate-600 leading-relaxed">
+                                <?php echo esc_html($desc); ?>
+                            </p>
+                        <?php endif; ?>
                     </div>
                 </div>
 
                 <div class="space-y-6 reveal-grid">
+                    <?php foreach ( $cards as $card ) : ?>
+                        <div class="reveal-card bg-white p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow duration-300 border border-white">
+                            
+                            <div class="bg-slate-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                                <?php if($card['icon'] === 'tech'): ?>
+                                    <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                    </svg>
+                                <?php else: ?>
+                                    <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                <?php endif; ?>
+                            </div>
 
-                    <div
-                        class="reveal-card bg-white p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow duration-300 border border-white">
-                        <div class="bg-slate-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                            </svg>
+                            <h3 class="text-2xl font-light mb-4"><?php echo esc_html($card['title']); ?></h3>
+                            <p class="text-slate-500 mb-8 leading-relaxed text-pretty">
+                                <?php echo esc_html($card['text']); ?>
+                            </p>
+
+                            <a href="<?php echo esc_url($card['btn_url']); ?>" class="group inline-flex items-center gap-3 bg-slate-50 hover:bg-slate-100 px-6 py-4 rounded-full transition-all">
+                                <span class="bg-white rounded-full p-1 group-hover:translate-x-1 transition-transform">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                                <span class="font-medium text-sm"><?php echo esc_html($card['btn_text']); ?></span>
+                            </a>
                         </div>
-                        <h3 class="text-2xl font-light mb-4">Slik fungerer teknologien</h3>
-                        <p class="text-slate-500 mb-8 leading-relaxed">
-                            Utforsk hvordan SPIDER automatiserer ruteplanlegging og ressursbruk.
-                        </p>
-                        <button
-                            class="group flex items-center gap-3 bg-slate-50 hover:bg-slate-100 px-6 py-4 rounded-full transition-all">
-                            <span class="bg-white rounded-full p-1 group-hover:translate-x-1 transition-transform">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                            </span>
-                            <span class="font-medium text-sm">Utforsk funksjonalitet</span>
-                        </button>
-                    </div>
-
-                    <div
-                        class="reveal-card bg-white p-8 md:p-10 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow duration-300 border border-white">
-                        <div class="bg-slate-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-light mb-4">Dokumentert effekt</h3>
-                        <p class="text-slate-500 mb-8 leading-relaxed text-pretty">
-                            Se de faktiske tallene og resultatene fra over 30 norske kommuner som allerede bruker
-                            SPIDER.
-                        </p>
-                        <button
-                            class="group flex items-center gap-3 bg-slate-50 hover:bg-slate-100 px-6 py-4 rounded-full transition-all">
-                            <span class="bg-white rounded-full p-1 group-hover:translate-x-1 transition-transform">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                            </span>
-                            <span class="font-medium text-sm">Se dokumenterte resultater</span>
-                        </button>
-                    </div>
-
+                    <?php endforeach; ?>
                 </div>
+                
             </div>
         </section>
+        <?php endif; ?>
         <!-- Result section ends  -->
     </div>
 
     <!-- Call to action  -->
+    <?php 
+    $show_cta  = get_theme_mod(SPIDER_PREFIX . 'funcitonality_enable_cta', true);
+    $headline  = get_theme_mod(SPIDER_PREFIX . 'funcitonality_cta_headline', 'Hver kommune er forskjellig');
+    $desc      = get_theme_mod(SPIDER_PREFIX . 'funcitonality_cta_desc', 'SPIDER tilpasses lokale regler...');
+    $btn_text  = get_theme_mod(SPIDER_PREFIX . 'funcitonality_cta_btn_text', 'Book gratis demo');
+    $btn_url   = get_theme_mod(SPIDER_PREFIX . 'funcitonality_cta_btn_url', '#');
+
+    if ( $show_cta ) : 
+    ?>
     <section class="bg-[#FFE587] py-32 relative overflow-hidden text-center bg-cover bg-center"
         style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/newsletter-bg.svg');">
+        
         <div class="relative z-10 max-w-4xl mx-auto px-6">
             <h2 class="reveal-type font-light text-3xl md:text-6xl font-serif text-gray-900 leading-tight mb-8">
-                Hver kommune er forskjellig
+                <?php echo esc_html($headline); ?>
             </h2>
 
-            <p class="reveal-type text-gray-700 text-sm max-w-2xl mx-auto leading-relaxed mb-12">
-                SPIDER tilpasses lokale regler, arbeidsflyt og prioriteringer – og leverer verdi der det betyr mest.
-            </p>
+            <?php if($desc): ?>
+                <p class="reveal-type text-gray-700 text-sm max-w-2xl mx-auto leading-relaxed mb-12">
+                    <?php echo esc_html($desc); ?>
+                </p>
+            <?php endif; ?>
 
-            <button
-                class="reveal-button bg-[#0c111d] text-white px-10 py-5 rounded-full inline-flex items-center gap-3 hover:bg-black transition-all group">
-                <span class="font-bold text-sm">Book gratis demo</span>
-            </button>
+            <?php if($btn_text): ?>
+                <a href="<?php echo esc_url($btn_url); ?>"
+                    class="reveal-button bg-[#0c111d] text-white px-10 py-5 rounded-full inline-flex items-center gap-3 hover:bg-black transition-all group">
+                    <span class="font-bold text-sm"><?php echo esc_html($btn_text); ?></span>
+                </a>
+            <?php endif; ?>
         </div>
     </section>
+    <?php endif; ?>
     <!-- Call to action Section ends  -->
 
 <?php get_footer(); ?>

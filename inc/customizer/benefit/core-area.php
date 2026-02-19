@@ -1,31 +1,31 @@
 <?php
 if( ! defined( 'ABSPATH' ) ) exit;
 
-Kirki::add_section( 'spider_funcitonality_comparison', array(
+Kirki::add_section( 'spider_benefit_core_area', array(
     'title'       => esc_html__( 'Comparison Section', 'spider-solutions' ),
     'panel'       => 'spider_benefit_panel',
 ) );
 
 Kirki::add_field( 'spider_config', [
     'type'     => 'toggle',
-    'settings' => SPIDER_PREFIX . 'funcitonality_enable_comparison',
+    'settings' => SPIDER_PREFIX . 'benefit_enable_core_area',
     'label'    => esc_html__( 'Show/Hide Section', 'spider-solutions' ),
-    'section'  => 'spider_funcitonality_comparison',
+    'section'  => 'spider_benefit_core_area',
     'default'  => true,
 ] );
 
 Kirki::add_field( 'spider_config', [
     'type'      => 'text',
-    'settings'  => SPIDER_PREFIX . 'funcitonality_comparison_badge',
+    'settings'  => SPIDER_PREFIX . 'benefit_core_area_badge',
     'label'     => esc_html__( 'Section Badge Text', 'spider' ),
-    'section'   => 'spider_funcitonality_comparison',
+    'section'   => 'spider_benefit_core_area',
     'default'   => 'Nøkkelfordeler',
 ] );
 
 Kirki::add_field( 'spider_config', [
     'type'      => 'textarea',
-    'settings'  => SPIDER_PREFIX . 'funcitonality_comparison_headline',
+    'settings'  => SPIDER_PREFIX . 'benefit_core_area_headline',
     'label'     => esc_html__( 'Section Headline', 'spider' ),
-    'section'   => 'spider_funcitonality_comparison',
+    'section'   => 'spider_benefit_core_area',
     'default'   => 'Planlegging som gir mer tid, bedre kvalitet og lavere belastning',
 ] );
