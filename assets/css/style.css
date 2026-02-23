@@ -4458,8 +4458,12 @@ body, body p{
   padding: 57px 20px;
 }
 
-@media (min-width:992px) {
-  .hero-bento-bottom-block{
-  max-width: 360px;
-}
+  @media (min-width:992px) {
+    .hero-bento-bottom-block{
+    max-width: 360px;
+  }
+
+  .home-mapping-left-icon {
+      left: -4%;
+  }
 }

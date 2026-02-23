@@ -27,10 +27,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Badge Text', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'Brukt av 30+ norske kommuner – hver dag',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-badge-ref', 'function' => 'text']
-    ],
 ]);
 
 /**
@@ -42,10 +38,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Hero Title', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'Verdensledende planlegging for hjemmetjenesten',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-title-ref', 'function' => 'text']
-    ],
 ]);
 
 /**
@@ -57,10 +49,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Hero Description', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'SPIDER bygger optimale arbeidslister og ruter på minutter...',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-desc-ref', 'function' => 'text']
-    ],
 ]);
 
 /**
@@ -72,10 +60,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('CTA Button Label', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'Book gratis demo',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-cta-ref', 'function' => 'text']
-    ],
 ]);
 
 /**
@@ -103,10 +87,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Card 1 Title', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'UNIKE oppkoblingsmuligheter',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-card1-title-ref', 'function' => 'text']
-    ],
 ]);
 
 Kirki::add_field('spider_config', [
@@ -115,10 +95,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Card 1 Description', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'SPIDER kobles sømløst mot EPJ...',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-card1-desc-ref', 'function' => 'text']
-    ],
 ]);
 
 /**
@@ -137,10 +113,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Card 2 Title', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'UNIK fleksibilitet',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-card2-title-ref', 'function' => 'text']
-    ],
 ]);
 
 Kirki::add_field('spider_config', [
@@ -149,10 +121,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Card 2 Description', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'SPIDER tilpasses lokale regler...',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-card2-desc-ref', 'function' => 'text']
-    ],
 ]);
 
 for ($i = 1; $i <= 3; $i++) {
@@ -163,10 +131,8 @@ for ($i = 1; $i <= 3; $i++) {
         'label'     => esc_html__("Feature Item $i", 'spider-solutions'),
         'section'   => 'spider_hero_section',
         'default'   => 'Step-in funksjoner',
-        'transport' => 'postMessage',
-        'js_vars'   => [
-            ['element' => ".hero-feature-$i-ref", 'function' => 'text']
-        ],
+
+
     ]);
 }
 
@@ -176,10 +142,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Optimization Card Title', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'UNIK optimeringskvalitet',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-card4-title-ref', 'function' => 'text']
-    ],
 ]);
 
 Kirki::add_field('spider_config', [
@@ -188,10 +150,6 @@ Kirki::add_field('spider_config', [
     'label'     => esc_html__('Optimization Card Description', 'spider-solutions'),
     'section'   => 'spider_hero_section',
     'default'   => 'SPIDER leverer dokumentert verdensledende optimering...',
-    'transport' => 'postMessage',
-    'js_vars'   => [
-        ['element' => '.hero-card4-desc-ref', 'function' => 'text']
-    ],
 ]);
 
 Kirki::add_field('spider_config', [

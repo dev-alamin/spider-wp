@@ -195,6 +195,8 @@ data-glows='[
 
             <!-- Hero Right Starts  -->
             <?php if ($show_hero_right): ?>
+
+              
               <div class="reveal-grid relative w-full md:h-[750px] lg:ml-auto lg:col-span-3">
                 <div class="reveal-card flex flex-col md:flex-row gap-6 justify-between">
 
@@ -220,7 +222,7 @@ data-glows='[
 
                       </div>
 
-                      <div class="bg-[#F8F7F4] rounded-2xl flex items-center justify-center relative overflow-hidden">
+                      <div style="max-width: 200px;" class="bg-[#F8F7F4] rounded-2xl flex items-center justify-center relative overflow-hidden">
                         <?php if ($card1_img) : ?>
                           <img src="<?php echo esc_url($card1_img); ?>" class="h-full w-full object-cover" alt="">
                         <?php endif; ?>
@@ -316,7 +318,7 @@ data-glows='[
 
                     <div
                       class="hero-bento-fourth-card md:w-[400px] lg:w-[470px] relative bg-white rounded-2xl p-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-gray-50 z-20 overflow-hidden lg:ml-[-130px]">
-                      <div class="absolute -right-6 -top-6 opacity-[0.04] text-gray-900 pointer-events-none">
+                      <div class="absolute -right-6 -top-6 text-gray-900 pointer-events-none">
 
                         <!-- <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
@@ -324,11 +326,7 @@ data-glows='[
                     d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
                     clip-rule="evenodd" />
                 </svg> -->
-                        <?php if ($center_logo && $show_center_logo) : ?>
-                          <img src="<?php echo esc_url($center_logo); ?>"
-                            class="w-full h-full object-contain animate-spider-float"
-                            alt="spider solution floating logo">
-                        <?php endif; ?>
+                   <img src="/wp-content/uploads/2026/02/gear-white-hero.png" alt="">
 
                       </div>
 

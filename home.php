@@ -452,52 +452,55 @@ if (spider_solutions_get_theme_option('home_enable_connection__section', true)) 
       </a>
     </div>
 
-    <div class="max-w-5xl mx-auto relative min-h-[400px] md:min-h-[800px] lg:min-h-[600px] flex items-center justify-center p-4">
-
+    <div class="container relative mx-auto">
       <div class="absolute inset-0 opacity-20 hidden sm:block" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 30px 30px;"></div>
+    
+      <div class="max-w-5xl mx-auto relative min-h-[400px] md:min-h-[800px] lg:min-h-[600px] flex items-center justify-center p-4">
 
-      <div class="relative z-10 bg-white/60 backdrop-blur-md rounded-[32px] lg:rounded-[48px] p-10 lg:p-20 shadow-2xl shadow-gray-200/50 border border-white flex flex-col items-center transition-all">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/main-logo-dark.svg" alt="SPIDER Solutions" class="h-8 lg:h-12 mb-2">
-        <div class="hidden lg:block absolute -top-12 left-1/2 -translate-x-1/2 w-[1px] h-12 bg-gray-200"></div>
-        <div class="hidden lg:block absolute -bottom-12 left-1/2 -translate-x-1/2 w-[1px] h-12 bg-gray-200"></div>
-        <div class="hidden lg:block absolute top-1/2 -left-12 -translate-y-1/2 h-[1px] w-12 bg-gray-200"></div>
-        <div class="hidden lg:block absolute top-1/2 -right-12 -translate-y-1/2 h-[1px] w-12 bg-gray-200"></div>
-      </div>
+        <div style="border-color: #E8E2E1;" class="relative z-10 bg-[#F1ECEA] rounded-[32px] lg:rounded-[48px] p-10 lg:p-20 shadow-2xl shadow-gray-200/50 border flex flex-col items-center transition-all">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/main-logo-dark.svg" alt="SPIDER Solutions" class="h-8 lg:h-12 mb-2">
+          <div class="hidden lg:block absolute -top-12 left-1/2 -translate-x-1/2 w-[1px] h-12 bg-gray-200"></div>
+          <div class="hidden lg:block absolute -bottom-12 left-1/2 -translate-x-1/2 w-[1px] h-12 bg-gray-200"></div>
+          <div class="hidden lg:block absolute top-1/2 -left-12 -translate-y-1/2 h-[1px] w-12 bg-gray-200"></div>
+          <div class="hidden lg:block absolute top-1/2 -right-12 -translate-y-1/2 h-[1px] w-12 bg-gray-200"></div>
+        </div>
 
-      <?php
-      // Position Map Helper
-      $positions = [
-        0 => 'absolute top-[20%] lg:top-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center z-20 w-full lg:w-auto px-4', // TOP
-        1 => 'absolute left-4 lg:left-0 top-[65%] lg:top-1/2 -translate-y-1/2 flex flex-col lg:flex-row items-center z-20 w-[45%] lg:w-auto', // LEFT
-        2 => 'absolute right-4 lg:right-0 top-[65%] lg:top-1/2 -translate-y-1/2 flex flex-col lg:flex-row-reverse items-center z-20 w-[45%] lg:w-auto', // RIGHT
-        3 => 'absolute bottom-[-10px] lg:bottom-[7%] left-1/2 -translate-x-1/2 flex flex-col-reverse items-center z-20 w-full lg:w-auto px-4' // BOTTOM
-      ];
-
-      foreach ($nodes as $index => $node) :
-        if ($index > 3) break; // Safety first
-        $container_class = $positions[$index];
-        $inner_box_margin = [
-          0 => 'mb-4 lg:mb-12',
-          1 => 'order-2 lg:order-1 lg:mr-4 mt-4 lg:mt-0',
-          2 => 'order-2 lg:order-1 lg:ml-4 mt-4 lg:mt-0',
-          3 => 'mt-4 lg:mt-12'
+        <?php
+        // Position Map Helper
+        $positions = [
+          0 => 'absolute top-[20%] lg:top-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center z-20 w-full lg:w-auto px-4', // TOP
+          1 => 'home-mapping-left-icon absolute left-4 lg:left-0 top-[65%] lg:top-1/2 -translate-y-1/2 flex flex-col lg:flex-row items-center z-20 w-[45%] lg:w-auto', // LEFT
+          2 => 'absolute right-4 lg:right-0 top-[65%] lg:top-1/2 -translate-y-1/2 flex flex-col lg:flex-row-reverse items-center z-20 w-[45%] lg:w-auto', // RIGHT
+          3 => 'absolute bottom-[-10px] lg:bottom-[7%] left-1/2 -translate-x-1/2 flex flex-col-reverse items-center z-20 w-full lg:w-auto px-4' // BOTTOM
         ];
-        $badge_order = ($index == 1 || $index == 2) ? 'order-1 lg:order-2' : '';
-      ?>
-        <div class="<?php echo $container_class; ?>">
-          <div class="bg-[#F1ECEA] rounded-2xl p-4 lg:p-6 shadow-sm border border-[#E8E2E1] text-center w-full max-w-[260px] lg:w-64 <?php echo $inner_box_margin[$index]; ?>">
-            <p class="text-xs lg:text-sm font-medium text-gray-700"><?php echo esc_html($node['desc']); ?></p>
-          </div>
-          <div class="bg-white px-4 py-1.5 rounded-full border border-gray-100 shadow-sm flex items-center gap-2 <?php echo $badge_order; ?>">
-            <span class="text-[10px] lg:text-[11px] font-bold text-gray-800 uppercase tracking-wider"><?php echo esc_html($node['label']); ?></span>
-            <div class="w-4 h-4 bg-[#FFE587] rounded-full flex items-center justify-center">
-              <svg class="w-2.5 h-2.5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path>
-              </svg>
+
+        foreach ($nodes as $index => $node) :
+          if ($index > 3) break; // Safety first
+          $container_class = $positions[$index];
+          $inner_box_margin = [
+            0 => 'mb-4 lg:mb-12',
+            1 => 'order-2 lg:order-1 lg:mr-4 mt-4 lg:mt-0',
+            2 => 'order-2 lg:order-1 lg:ml-4 mt-4 lg:mt-0',
+            3 => 'mt-4 lg:mt-12'
+          ];
+          $badge_order = ($index == 1 || $index == 2) ? 'order-1 lg:order-2' : '';
+        ?>
+          <div class="<?php echo $container_class; ?>">
+            <div class="bg-[#F1ECEA] rounded-2xl p-4 lg:p-6 shadow-sm border border-[#E8E2E1] text-center w-full max-w-[260px] lg:w-64 <?php echo $inner_box_margin[$index]; ?>">
+              <p class="text-xs lg:text-sm font-medium text-gray-700"><?php echo esc_html($node['desc']); ?></p>
+            </div>
+            <div class="bg-white px-4 py-1.5 rounded-full border border-gray-100 shadow-sm flex items-center gap-2 <?php echo $badge_order; ?>">
+              <span class="text-[10px] lg:text-[11px] font-bold text-gray-800 uppercase tracking-wider"><?php echo esc_html($node['label']); ?></span>
+              <div class="w-4 h-4 bg-[#FFE587] rounded-full flex items-center justify-center">
+                <svg class="w-2.5 h-2.5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path>
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
-      <?php endforeach; ?>
+        <?php endforeach; ?>
+
+      </div>
 
     </div>
   </section>
