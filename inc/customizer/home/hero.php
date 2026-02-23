@@ -136,6 +136,50 @@ for ($i = 1; $i <= 3; $i++) {
     ]);
 }
 
+/**
+ * CARD 3
+ */
+Kirki::add_field('spider_config', [
+    'type'      => 'text',
+    'settings'  => SPIDER_PREFIX . 'home_hero_card3_title',
+    'label'     => esc_html__('Card 3 Title', 'spider-solutions'),
+    'section'   => 'spider_hero_section',
+    'default'   => 'UNIK integrasjon',
+]);
+
+Kirki::add_field('spider_config', [
+    'type'      => 'textarea',
+    'settings'  => SPIDER_PREFIX . 'home_hero_card3_desc',
+    'label'     => esc_html__('Card 3 Description', 'spider-solutions'),
+    'section'   => 'spider_hero_section',
+    'default'   => 'SPIDER integrerer med alle løsninger...',
+]);
+
+for( $i = 0; $i <= 3; $i++ ) {
+    Kirki::add_field('spider_config', [
+        'type'     => 'image',
+        'settings' => SPIDER_PREFIX . 'home_hero_gallery_images_' . $i,
+        'label'    => esc_html__('Card 3 User ' . $i + 1, 'spider-solutions'),
+        'section'  => 'spider_hero_section',
+    ]);
+}
+
+Kirki::add_field('spider_config', [
+    'type'      => 'text',
+    'settings'  => SPIDER_PREFIX . 'home_hero_secondary_cta_label',
+    'label'     => esc_html__('Secondary CTA Button Label', 'spider-solutions'),
+    'section'   => 'spider_hero_section',
+    'default'   => 'Learn More',
+]);
+
+Kirki::add_field('spider_config', [
+    'type'     => 'link',
+    'settings' => SPIDER_PREFIX . 'home_hero_secondary_cta_link',
+    'label'    => esc_html__('Secondary CTA Button Link', 'spider-solutions'),
+    'section'  => 'spider_hero_section',
+    'default'  => '#',
+]);
+
 Kirki::add_field('spider_config', [
     'type'      => 'text',
     'settings'  => SPIDER_PREFIX . 'home_hero_card4_title',

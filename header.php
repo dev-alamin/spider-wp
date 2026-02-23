@@ -5,14 +5,13 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="profile" href="https://gmpg.org/xfn/11">
-  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <?php if ( function_exists( 'has_site_icon' ) && has_site_icon() ) : ?>
+  <?php if (function_exists('has_site_icon') && has_site_icon()) : ?>
     <?php wp_site_icon(); ?>
   <?php endif; ?>
-
 
   <?php wp_head(); ?>
 </head>
@@ -20,25 +19,23 @@
 <body <?php body_class(); ?> x-data>
   <?php wp_body_open(); ?>
 
-       
-
   <div id="page" class="site page-wrapper" style="position: relative; overflow: hidden;"
-  <?php if( is_page_template( 'functionality.php' ) ): ?>
-      data-glows='[
+    <?php if (is_page_template('functionality.php')): ?>
+    data-glows='[
       { "color": "#88b9fa", "top": "40%", "left": "-50%", "width": "100vw" },
       { "color": "#f7dc72", "top": "-10%", "right": "-20%", "height": "100vh" }
   ]'
-  <?php endif; ?>
+    <?php endif; ?>
 
-  <?php if(is_page_template( 'contact.php' ) ): ?>
-data-glows='[
+    <?php if (is_page_template('contact.php')): ?>
+    data-glows='[
     { "color": "#f7dc72", "top": "5%", "left": "-50%", "width": "100vw" },
     { "color": "#88b9fa", "top": "30%", "right": "0", "height": "100vh" }
 ]'
-  <?php endif; ?>
+    <?php endif; ?>
 
-    <?php if(is_page_template( 'benefit.php' ) ): ?>
-data-glows='[
+    <?php if (is_page_template('benefit.php')): ?>
+    data-glows='[
     { "color": "#f7dc72", "top": "10%", "left": "-50%", "width": "100vw" },
     { "color": "#88b9fa", "top": "30%", "right": "-20%", "height": "100vh" }
 ]''
@@ -46,7 +43,7 @@ data-glows='[
 
 
   >
-    <?php if(is_front_page()): ?>
+    <?php if (is_front_page()): ?>
     <div class="glow-blob yellow-glow"></div>
     <div class="glow-blob blue-glow"></div>
     <?php endif; ?>
@@ -71,8 +68,8 @@ data-glows='[
           ?>
         </div>
 
-        <?php if ( get_theme_mod( SPIDER_PREFIX . 'header_enable_section', true ) ) : ?>
-        <a href="<?php echo esc_url(get_theme_mod(SPIDER_PREFIX . 'header_btn_link', '/kontakt' )); ?>" class="hidden lg:block px-8 py-4 rounded-full bg-white text-black text-sm shadow-sm hover:bg-spider-dark hover:text-black transition-all">
+        <?php if (get_theme_mod(SPIDER_PREFIX . 'header_enable_section', true)) : ?>
+        <a href="<?php echo esc_url(get_theme_mod(SPIDER_PREFIX . 'header_btn_link', '/kontakt')); ?>" class="hidden lg:block px-8 py-4 rounded-full bg-white text-black text-sm shadow-sm hover:bg-spider-dark hover:text-black transition-all">
           Kontakt oss
         </a>
         <?php endif; ?>
@@ -111,8 +108,8 @@ data-glows='[
                 ));
                 ?>
 
-              <?php if ( get_theme_mod( SPIDER_PREFIX . 'header_enable_section', true ) ) : ?>
-                  <a href="<?php echo esc_url(get_theme_mod(SPIDER_PREFIX . 'header_btn_link', '/kontakt' )); ?>"
+              <?php if (get_theme_mod(SPIDER_PREFIX . 'header_enable_section', true)) : ?>
+                  <a href="<?php echo esc_url(get_theme_mod(SPIDER_PREFIX . 'header_btn_link', '/kontakt')); ?>"
                     @click="mobileMenuOpen = false"
                     class="mt-8 px-8 py-4 rounded-full bg-[#111] text-white text-center text-base hover:bg-black transition-colors shadow-lg">
                     Kontakt oss
@@ -144,6 +141,12 @@ data-glows='[
 
         $card2_title = spider_solutions_get_theme_option('home_hero_card2_title');
         $card2_desc  = spider_solutions_get_theme_option('home_hero_card2_desc');
+
+        $card3_title     = spider_solutions_get_theme_option( 'home_hero_card3_title' );
+        $card3_desc      = spider_solutions_get_theme_option( 'home_hero_card3_desc' );
+        $card3_gallery   = spider_solutions_get_theme_option( 'home_hero_gallery_images' );
+        $card3_cta_label = spider_solutions_get_theme_option( 'home_hero_secondary_cta_label', '+ Legg til ny bruker' );
+        $card3_cta_link  = spider_solutions_get_theme_option( 'home_hero_secondary_cta_link', '/kontakt' );
 
         $card4_title = spider_solutions_get_theme_option('home_hero_card4_title');
         $card4_desc  = spider_solutions_get_theme_option('home_hero_card4_desc');
@@ -195,166 +198,120 @@ data-glows='[
 
             <!-- Hero Right Starts  -->
             <?php if ($show_hero_right): ?>
-
-              
-              <div class="reveal-grid relative w-full md:h-[750px] lg:ml-auto lg:col-span-3">
-                <div class="reveal-card flex flex-col md:flex-row gap-6 justify-between">
-
+          <div class="lg:col-span-3 w-full">
+            
+            <div class="spider-hero-grid">
+             
+              <div class="spider-hero-card spider-hero-span-3">
+                <div class="flex">
                   <div>
-
-                    <div
-                      class="left-4 flex bg-white  md:max-h-[250px] rounded-2xl p-2 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-gray-50 z-20">
-
-                      <div class="md:w-[295px] p-4 break-words">
-                        <div class="bg-[#FFE587] w-12 h-12 rounded-2xl flex items-center justify-center mb-6">
-                          <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                          </svg>
-                        </div>
-                        <h3 class="hero-card1-title-ref font-serif text-[14px] leading-[1.1] text-gray-900 mb-4">
-                          <?php echo esc_html($card1_title); ?>
-                        </h3>
-
-                        <p class="hero-card1-desc-ref text-[12px] text-gray-500 mb-8 leading-relaxed">
-                          <?php echo esc_html($card1_desc); ?>
-                        </p>
-
-                      </div>
-
-                      <div style="max-width: 200px;" class="bg-[#F8F7F4] rounded-2xl flex items-center justify-center relative overflow-hidden">
-                        <?php if ($card1_img) : ?>
-                          <img src="<?php echo esc_url($card1_img); ?>" class="h-full w-full object-cover" alt="">
-                        <?php endif; ?>
-                      </div>
-
+                    <div class="spider-hero-icon-box">
+                      <img src="https://img.icons8.com/ios-filled/50/000000/copy.png" width="24" height="24"/>
                     </div>
-
-                    <div class="relative">
-                      <div
-                        class="hero-bento-bottom-block bottom-4 bg-white rounded-2xl p-4 py-8 md:py-15.5 mt-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-50 z-30 lg:mt-16">
-                        <h3 class="hero-card2-title-ref font-serif text-[14px] text-center text-gray-900 mb-4">
-                          <?php echo esc_html($card2_title); ?>
-                        </h3>
-
-                        <p class="hero-card2-desc-ref text-[13px] text-gray-500 text-center mb-8 leading-relaxed">
-                          <?php echo esc_html($card2_desc); ?>
-                        </p>
-
-
-                        <div class="flex justify-center -space-x-4 mb-8">
-                          <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
-                            src="/wp-content/uploads/2026/02/0c23f9f1a65065e10c0abcc3b707937ae80b5f12.jpg" alt="">
-                          <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
-                            src="/wp-content/uploads/2026/02/9ddb52552f1000f1ff24d6e5998b4e75b807d87b.jpg" alt="">
-                          <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
-                            src="/wp-content/uploads/2026/02/fbdbd28a57ad4574dc8d3c66eec64917ab8b8848.jpg" alt="">
-                            <img class="w-14 h-14 rounded-full border-[6px] border-white shadow-sm"
-                            src="/wp-content/uploads/2026/02/b0a78fdc3a6d8297b81c8e8b76e94feef1df21fe.jpg" alt="">
-                          <div
-                            class="w-14 h-14 rounded-full border-[6px] border-white bg-[#FFE587] flex items-center justify-center text-gray-900 text-sm font-bold shadow-sm">
-                            +</div>
-                        </div>
-
-                        <button style="border: 1px solid #EDE4E0;"
-                          class="w-full py-5 bg-[#F9F5F3] rounded-2xl text-[11px] font-bold text-gray-600 flex items-center justify-center gap-2 hover:bg-[#FFE587] hover:text-gray-900 transition-colors">
-                          <span class="text-xl leading-none font-light">+</span> Legg til ny bruker
-                        </button>
-                      </div>
-
-
-
-                      <div
-                        class="hero-central-logo hidden lg:flex w-[120px] h-[120px] absolute left-95 top-2 items-center justify-center z-40">
-                        <?php if ($center_logo && $show_center_logo) : ?>
-                          <img style="max-width: 80px;" src="<?php echo esc_url($center_logo); ?>"
-                            class="w-full h-full object-contain animate-spider-float"
-                            alt="spider solution floating logo">
-                        <?php endif; ?>
-                      </div>
-
-                    </div>
-
-
+                    <h3 class="spider-hero-title">
+                       <?php echo esc_html($card1_title); ?>
+                    </h3>
+                    <p class="spider-hero-desc"><?php echo esc_html($card1_desc); ?></p>
                   </div>
+                <img style="max-width: 210px;max-height: fit-content;border-radius: 15px;margin-top: -1rem;margin-right: -1rem;margin-bottom: -1rem;" src="<?php echo esc_url($card1_img); ?>" alt="">
+              </div>
+            </div>
 
-                  <div class="reveal-card md:flex flex-col mt-2 md:mt-0">
-                    <div
-                      class="md:w-[340px] md:max-h-[400px] bg-white rounded-2xl p-6 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.06)] border border-gray-50 z-10 mb-6 lg:mb-12">
-                      <div class="mb-6">
-                        <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-1">UNIK</h3>
-                        <h4 class="hero-card2-title-ref font-serif text-[14px] leading-tight text-gray-900">
-                          <?php echo esc_html($card2_title); ?>
-                        </h4>
-                      </div>
-                      <p class="hero-card2-desc-ref text-[13px] text-gray-500 mb-8 leading-relaxed">
-                        <?php echo esc_html($card2_desc); ?>
-                      </p>
-
-                      <div class="space-y-3">
-
-                        <?php for ($i = 1; $i <= 3; $i++) :
-                          $feature = get_theme_mod(SPIDER_PREFIX . "home_hero_feature_$i", 'Step-in funksjoner');
-                        ?>
-
-
-                          <div style="background-color: #F9F5F3;border:1px solid #EDE4E0;" class="<?php if ($i >= 2) echo 'ml-' . 8 * ($i - 1); ?> px-5 py-4 rounded-2xl flex items-center gap-2">
+              <!-- Hero card 2 ends  -->
+              <div class="spider-hero-card spider-hero-card--alt spider-hero-span-2-tall">
+                <h3 class="spider-hero-title">
+                 <?php echo esc_html($card2_title); ?>
+                </h3>
+                <p class="spider-hero-desc">
+                  <?php echo esc_html($card2_desc); ?>
+                </p>
+                <div class="spider-hero-list">
+                    <?php for ($i = 1; $i <= 3; $i++) :
+                        $feature = get_theme_mod(SPIDER_PREFIX . "home_hero_feature_$i", 'Step-in funksjoner');
+                    ?>
+                        <div style="background-color: #F9F5F3;border:1px solid #EDE4E0;" class="<?php if ($i >= 2) echo 'ml-' . 8 * ($i - 1); ?> px-5 py-4 rounded-2xl flex items-center gap-2">
                             <div class="bg-[#FFE587] rounded-full p-1 text-gray-900"><svg class="w-3 h-3" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                              </svg></div>
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                                </svg></div>
 
-                            <span class="hero-feature-<?php echo $i; ?>-ref text-[14px] font-medium text-gray-800">
-                              <?php echo esc_html($feature); ?>
+                            <span class="hero-feature-<?php echo $i; ?>-ref text-[14px] text-gray-800">
+                                <?php echo esc_html($feature); ?>
                             </span>
 
-                          </div>
+                        </div>
+                    <?php endfor; ?>
+                </div>
+              </div>
+              <!-- Hero card 2 ends  -->
 
-                        <?php endfor; ?>
+              <!-- Hero card 3  -->
+              <div class="spider-hero-card spider-hero-span-2-tall third">
+                <h3 class="spider-hero-title "><?php echo esc_html( $card3_title ); ?></h3>
+                <p class="mb-6 spider-hero-desc">
+                      <?php echo esc_html( $card3_desc); ?>
+                </p>
+                <div class="spider-hero-avatars">
 
+                    <?php if ( spider_solutions_get_theme_option( 'home_hero_gallery_images_0', "/wp-content/uploads/2026/02/0c23f9f1a65065e10c0abcc3b707937ae80b5f12.jpg") ) : ?>
+                    <img class="spider-hero-avatar"
+                      src="<?php echo esc_url( spider_solutions_get_theme_option( 'home_hero_gallery_images_0', "/wp-content/uploads/2026/02/0c23f9f1a65065e10c0abcc3b707937ae80b5f12.jpg") ) ?>" alt="Spider Solution Gallery User">
+                    <?php endif; ?>
+                    
+                    <?php if ( spider_solutions_get_theme_option( 'home_hero_gallery_images_1', "/wp-content/uploads/2026/02/9ddb52552f1000f1ff24d6e5998b4e75b807d87b.jpg") ) : ?>
+                    <img class="spider-hero-avatar"
+                      src="<?php echo esc_url( spider_solutions_get_theme_option( 'home_hero_gallery_images_1', "/wp-content/uploads/2026/02/9ddb52552f1000f1ff24d6e5998b4e75b807d87b.jpg") ) ?>" alt="Spider Solution Gallery User">
+                    <?php endif; ?>
+                    
+                    <?php if ( spider_solutions_get_theme_option( 'home_hero_gallery_images_2', "/wp-content/uploads/2026/02/fbdbd28a57ad4574dc8d3c66eec64917ab8b8848.jpg") ) : ?>
+                    <img class="spider-hero-avatar"
+                      src="<?php echo esc_url( spider_solutions_get_theme_option( 'home_hero_gallery_images_2', "/wp-content/uploads/2026/02/fbdbd28a57ad4574dc8d3c66eec64917ab8b8848.jpg") ) ?>" alt="Spider Solution Gallery User">
+                    <?php endif; ?>
+                    
+                    <?php if ( spider_solutions_get_theme_option( 'home_hero_gallery_images_3', "/wp-content/uploads/2026/02/b0a78fdc3a6d8297b81c8e8b76e94feef1df21fe.jpg") ) : ?>
+                    <img class="spider-hero-avatar"
+                      src="<?php echo esc_url( spider_solutions_get_theme_option( 'home_hero_gallery_images_3', "/wp-content/uploads/2026/02/b0a78fdc3a6d8297b81c8e8b76e94feef1df21fe.jpg") ) ?>" alt="Spider Solution Gallery User">
+                    <?php endif; ?>
 
+                  <div class="spider-hero-avatar spider-hero-avatar-plus text-xs">+</div>
+                </div>
+                <a href="<?php echo esc_url( $card3_cta_link ); ?>" class="spider-hero-btn text-[14px] inline-block">
+                    <?php echo esc_html( $card3_cta_label ); ?>
+                </a>         
+ </div>
+              <!-- Hero card 3 ends  -->
+
+              <!-- Hero card 4  -->
+              <div class="spider-hero-card spider-hero-span-3">
+                <div class="flex">
+                  <div class="" style="max-width: 66%;">
+                    <div>
+                      <div class="spider-hero-icon-box">
+                        <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" width="24" height="24"/>
                       </div>
-                    </div>
-
-                    <div
-                      class="hero-bento-fourth-card md:w-[400px] lg:w-[470px] relative bg-white rounded-2xl p-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-gray-50 z-20 overflow-hidden lg:ml-[-130px]">
-                      <div class="absolute -right-6 -top-6 text-gray-900 pointer-events-none">
-
-                        <!-- <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                  <path fill-rule="evenodd"
-                    d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                    clip-rule="evenodd" />
-                </svg> -->
-                   <img src="/wp-content/uploads/2026/02/gear-white-hero.png" alt="">
-
-                      </div>
-
-                      <div class="bg-[#FFE587] w-14 h-14 rounded-full flex items-center justify-center mb-8">
-                        <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        </svg>
-                      </div>
-                      <h3 class="hero-card4-title-ref font-serif text-[14px] leading-[1.1] text-gray-900 mb-5">
+                      <h3 class="spider-hero-title">
                         <?php echo esc_html($card4_title); ?>
                       </h3>
-
-                      <p class="hero-card4-desc-ref text-[13px] text-gray-500 leading-relaxed" style="padding-right: 2rem;">
+                      <p class="spider-hero-desc">
                         <?php echo esc_html($card4_desc); ?>
                       </p>
-
-                    </div>
-
-
-
+                      </div>
                   </div>
-
+                <img src="http://spidersolutions.local/wp-content/uploads/2026/02/gear-white-hero.png" 
+                style="overflow: hidden;object-fit:contain;margin-right:-1.5rem;margin-top:-6.5rem;border-radius:1.5rem" alt="">
                 </div>
-
-
               </div>
-            <?php endif; ?>
+              <!-- Hero card 4 ends  -->
+
+              <div class="spider-hero-center-logo">
+                <?php if ($center_logo) : ?>
+                  <img src="<?php echo esc_url($center_logo); ?>" width="58" height="58" class="animate-spider-float"/>
+                <?php endif; ?>
+              </div>
+
+            </div>
+          </div>
+        <?php endif; ?>
             <!-- Hero Right ends -->
 
           </header>

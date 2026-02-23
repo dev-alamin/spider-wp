@@ -4467,3 +4467,203 @@ body, body p{
       left: -4%;
   }
 }
+
+
+/**
+====================================
+/* Bento Grid  
+====================================
+*/
+/* spider-hero-styles.css */
+:root {
+  --spider-bg: #f6f3ee;
+  --spider-white: #ffffff;
+  --spider-accent: #fcd34d; /* yellow-300 */
+  --spider-accent-light: #fef3c7; /* yellow-100/200 */
+  --spider-text-main: #0F0F11;
+  --spider-text-muted: #4b5563;
+  --spider-radius: 1.5rem;
+  --spider-shadow: 0 1px 40px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.spider-hero-section {
+  background-color: var(--spider-bg);
+  padding: 4rem 0;
+}
+
+.spider-hero-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.spider-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Responsive Grid Logic */
+@media (min-width: 640px) {
+  .spider-hero-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .spider-hero-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Card Base */
+.spider-hero-card {
+  background-color: var(--spider-white);
+  border-radius: var(--spider-radius);
+  padding: 1.5rem;
+  box-shadow: var(--spider-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.spider-hero-card.third{
+  justify-content: center;
+}
+/* Card Spanning */
+@media (min-width: 1024px) {
+  .spider-hero-span-3 { grid-column: span 7; grid-row: span 2; }
+  .spider-hero-span-2-tall { grid-column: span 5; grid-row: span 8; }
+}
+
+/* Elements */
+.spider-hero-icon-box {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background-color: var(--spider-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.spider-hero-title {
+  color: var(--spider-text-main);
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.spider-hero-title:after{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 100%;
+  height: 1px;
+  width: 150px;
+  background-color: #E8E2E1;
+}
+
+.spider-hero-desc {
+  color: var(--spider-text-muted);
+  line-height: 1.625;
+  font-size: 14px;
+}
+
+/* Feature List (Card 2) */
+.spider-hero-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.spider-hero-list-item {
+  background: #F9F5F3;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #EDE4E0;
+}
+
+.spider-hero-check {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--spider-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Avatars (Card 3) */
+.spider-hero-avatars {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.spider-hero-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--spider-white);
+  margin-left: -0.75rem;
+}
+
+.spider-hero-avatar:first-child { margin-left: 0; }
+
+.spider-hero-avatar-plus {
+  background-color: var(--spider-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+/* Button */
+.spider-hero-btn {
+  border: 1px solid #e5e7eb;
+  background: #F9F5F3;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: center;
+}
+
+.spider-hero-btn:hover {
+  background-color: #f9fafb;
+}
+
+/* Center Logo */
+.spider-hero-center-logo {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.spider-hero-card.spider-hero-span-2-tall.third {
+    text-align: center;
+}
+
+.spider-hero-card.spider-hero-span-2-tall.third .spider-hero-title:after {
+    left: 25%;
+}
+
+@media (min-width: 1024px) {
+  .spider-hero-center-logo { display: flex; }
+}
