@@ -17,7 +17,7 @@ Kirki::add_field('spider_config', [
 // Headline
 Kirki::add_field( 'spider_config', [
     'type'     => 'text',
-    'settings' => SPIDER_PREFIX . 'home_tf_headline',
+    'settings' => SPIDER_PREFIX . 'home_testimonial_headline',
     'label'    => esc_html__( 'Section Headline', 'spider' ),
     'section'  => 'spider_home_testimonial',
     'default'  => 'Funksjonalitet uten grenser',

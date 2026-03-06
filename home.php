@@ -335,7 +335,7 @@ if (spider_solutions_get_theme_option('home_enable_testimonial_section', true) &
     <div class="container mx-auto px-12">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
         <h2 class="reveal-type font-light text-3xl md:text-5xl font-serif leading-tight text-gray-900 max-w-xl">
-          <?php echo esc_html(spider_solutions_get_theme_option('home_tf_headline')); ?>
+          <?php echo esc_html(spider_solutions_get_theme_option('home_testimonial_headline')); ?>
         </h2>
 
         <div class="flex gap-3">
